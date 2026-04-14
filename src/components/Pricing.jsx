@@ -148,8 +148,8 @@ function PricingCard({ plan, extraClass = '', index = 0 }) {
         ))}
       </ul>
 
-      {/* CTA */}
-      <a
+      {/* CTA — hidden during waitlist phase, re-enable when launching */}
+      {/* <a
         href="https://app.interviewer.pmaccelerator.io/"
         target="_blank"
         rel="noreferrer"
@@ -158,10 +158,9 @@ function PricingCard({ plan, extraClass = '', index = 0 }) {
         {plan.cta}
       </a>
 
-      {/* Note */}
       <p className="mt-4 font-['Geist',sans-serif] font-normal text-[#a3a3a3] text-[12px] leading-[1.5] text-center">
         {plan.description}
-      </p>
+      </p> */}
     </div>
     </li>
   )
@@ -177,7 +176,7 @@ function SectionHeader({ headingClass }) {
         Pricing
       </p>
       <h2 className={`font-['Geist',sans-serif] font-medium text-[#171717] text-center tracking-[-0.96px] w-full ${headingClass}`}>
-        Expert coaching, without the $200/hr price tag
+        Expert coaching, without the $800/hr price tag
       </h2>
     </div>
   )
