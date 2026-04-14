@@ -78,7 +78,7 @@ function BentoCard({ icon, title, description, cardClass, index = 0 }) {
   return (
     <div ref={ref} className={`shrink-0 ${cardClass}`} style={fadeInUp(inView, index * 0.1)}>
       <div
-        className="bg-gradient-to-br from-[#fff4ee] to-[#ffe8d6] relative rounded-[16px] flex flex-col items-center justify-center shadow-[0_2px_6px_rgba(0,0,0,0.04),0_6px_20px_rgba(0,0,0,0.07)] transition-all duration-300 ease-out hover:scale-[1.03] hover:shadow-[0_6px_16px_rgba(250,100,0,0.12),0_16px_40px_rgba(0,0,0,0.10)] cursor-pointer w-full h-full"
+        className="bg-gradient-to-br from-[#fff4ee] to-[#ffe8d6] relative rounded-[16px] flex flex-col items-center justify-center shadow-[0_2px_6px_rgba(0,0,0,0.04),0_6px_20px_rgba(0,0,0,0.07)] transition-all duration-300 ease-out hover:scale-[1.03] hover:shadow-[0_6px_16px_rgba(250,100,0,0.12),0_16px_40px_rgba(0,0,0,0.10)] w-full h-full"
       >
         <div className="flex flex-col gap-[16px] items-center justify-center p-[24px] w-full h-full">
           {icon}
