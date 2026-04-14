@@ -3,7 +3,6 @@ import ReactDOM from 'react-dom/client'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import App from './App.jsx'
 import PrivacyPolicy from './pages/PrivacyPolicy.jsx'
-import CookiePolicy from './pages/CookiePolicy.jsx'
 import TermsAndConditions from './pages/TermsAndConditions.jsx'
 import AITransparency from './pages/AITransparency.jsx'
 import FAQPage from './pages/FAQ.jsx'
@@ -17,7 +16,6 @@ ReactDOM.createRoot(document.getElementById('root')).render(
       <Routes>
         <Route path="/" element={<App />} />
         <Route path="/privacy-policy" element={<PrivacyPolicy />} />
-        <Route path="/cookie-policy" element={<CookiePolicy />} />
         <Route path="/terms-and-conditions" element={<TermsAndConditions />} />
         <Route path="/ai-transparency-statement" element={<AITransparency />} />
         <Route path="/faq" element={<FAQPage />} />

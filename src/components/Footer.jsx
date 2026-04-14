@@ -32,7 +32,6 @@ const navColumns = [
     heading: 'Information',
     links: [
       { label: 'Privacy Policy', to: '/privacy-policy' },
-      { label: 'Cookie Policy', to: '/cookie-policy' },
       { label: 'Terms of Service', to: '/terms-and-conditions' },
       { label: 'AI Transparency Statement', to: '/ai-transparency-statement' },
     ],
