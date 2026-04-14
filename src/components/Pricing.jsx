@@ -176,7 +176,7 @@ function SectionHeader({ headingClass }) {
         Pricing
       </p>
       <h2 className={`font-['Geist',sans-serif] font-medium text-[#171717] text-center tracking-[-0.96px] w-full ${headingClass}`}>
-        Expert coaching, without the $800/hr price tag
+        Expert coaching, without the $800 price tag
       </h2>
     </div>
   )
