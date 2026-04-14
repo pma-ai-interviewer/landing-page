@@ -115,10 +115,10 @@ export default function WaitlistPage() {
   const width = useWindowWidth()
 
   const props = width < 800
-    ? { headingClass: 'text-[32px] leading-[36px] tracking-[-0.96px]',  py: 'py-[48px]', px: 'px-[16px]' }
+    ? { headingClass: 'text-[32px] leading-[36px] tracking-[-0.96px]',  py: 'pt-[48px] pb-[16px]', px: 'px-[16px]' }
     : width < 1280
-    ? { headingClass: 'text-[36px] leading-[40px] tracking-[-1.08px]', py: 'py-[56px]', px: 'px-[40px]' }
-    : { headingClass: 'text-[48px] leading-[52px] tracking-[-1.44px]', py: 'py-[80px]', px: 'px-[40px]' }
+    ? { headingClass: 'text-[36px] leading-[40px] tracking-[-1.08px]', py: 'pt-[56px] pb-[24px]', px: 'px-[40px]' }
+    : { headingClass: 'text-[48px] leading-[52px] tracking-[-1.44px]', py: 'pt-[80px] pb-[24px]', px: 'px-[40px]' }
 
   return (
     <div className="min-h-screen bg-white flex flex-col">

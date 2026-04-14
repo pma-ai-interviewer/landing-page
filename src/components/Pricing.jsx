@@ -108,14 +108,16 @@ function PricingCard({ plan, extraClass = '', index = 0 }) {
     >
       {/* Header */}
       <div className="flex flex-col gap-[6px]">
-        {plan.tag && (
-          <span className="self-start inline-flex items-center px-[8px] py-[3px] rounded-full bg-[#fff0e6] text-[#fa6400] font-['Geist',sans-serif] font-semibold text-[11px] tracking-[0.3px] uppercase mb-[2px]">
-            {plan.tag}
-          </span>
-        )}
-        <p className="font-['Geist',sans-serif] font-semibold text-[#171717] text-[18px] leading-[1.3] tracking-[-0.09px]">
-          {plan.name}
-        </p>
+        <div className="flex items-center justify-between gap-[8px]">
+          <p className="font-['Geist',sans-serif] font-semibold text-[#171717] text-[18px] leading-[1.3] tracking-[-0.09px]">
+            {plan.name}
+          </p>
+          {plan.tag && (
+            <span className="inline-flex items-center px-[8px] py-[3px] rounded-full bg-[#fff0e6] text-[#fa6400] font-['Geist',sans-serif] font-semibold text-[11px] tracking-[0.3px] uppercase shrink-0">
+              {plan.tag}
+            </span>
+          )}
+        </div>
         <p className="font-['Geist',sans-serif] font-normal text-[#737373] text-[14px] leading-[1.4] tracking-[-0.07px]">
           {plan.subtitle}
         </p>
