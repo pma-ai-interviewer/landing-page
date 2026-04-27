@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import { fadeInUp } from '../hooks/useInView'
 
-const APP_URL = 'https://app.interviewer.pmaccelerator.io/'
+const REGISTER_URL = 'https://interviewer.pmaccelerator.io/register'
 
 function useWindowWidth() {
   const [width, setWidth] = useState(() =>
@@ -47,7 +47,7 @@ function Frame2147236706Mobile({ mounted }) {
     <div className="content-stretch flex flex-col gap-[32px] items-center py-[24px] relative shrink-0 w-full">
       <Frame2147236703Mobile mounted={mounted} />
       <a
-        href={APP_URL}
+        href={REGISTER_URL}
         className="inline-flex items-center justify-center bg-[#210099] rounded-[8px] h-[42px] px-[24px] font-['Geist',sans-serif] font-medium text-[16px] text-white tracking-[0.07px] whitespace-nowrap hover:bg-[#1a0080] transition-colors"
         style={fadeInUp(mounted, 0.15)}
       >
@@ -190,7 +190,7 @@ function Frame2147236706Tablet({ mounted }) {
     <div className="content-stretch flex flex-col gap-[32px] items-center py-[36px] relative shrink-0 w-full">
       <Frame2147236703Tablet mounted={mounted} />
       <a
-        href={APP_URL}
+        href={REGISTER_URL}
         className="inline-flex items-center justify-center bg-[#210099] rounded-[8px] h-[42px] px-[24px] font-['Geist',sans-serif] font-medium text-[16px] text-white tracking-[0.07px] whitespace-nowrap hover:bg-[#1a0080] transition-colors"
         style={fadeInUp(mounted, 0.15)}
       >
@@ -267,7 +267,7 @@ function Frame2147236706Desktop({ mounted }) {
     <div className="content-stretch flex flex-col gap-[32px] items-center justify-center py-[64px] relative shrink-0 w-full">
       <Frame2147236703Desktop mounted={mounted} />
       <a
-        href={APP_URL}
+        href={REGISTER_URL}
         className="inline-flex items-center justify-center bg-[#210099] rounded-[8px] h-[42px] px-[24px] font-['Geist',sans-serif] font-medium text-[16px] text-white tracking-[0.07px] whitespace-nowrap hover:bg-[#1a0080] transition-colors"
         style={fadeInUp(mounted, 0.15)}
       >

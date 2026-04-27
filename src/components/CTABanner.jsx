@@ -32,7 +32,7 @@ export default function CTABanner() {
           Join a community of product managers who are mastering their interview success.
         </p>
         <a
-          href="https://app.interviewer.pmaccelerator.io/"
+          href="https://interviewer.pmaccelerator.io/register"
           target="_blank"
           rel="noreferrer"
           className="mt-[8px] inline-flex items-center justify-center bg-[#210099] rounded-[8px] h-[42px] px-[24px] font-['Geist',sans-serif] font-medium text-[16px] text-white tracking-[0.07px] whitespace-nowrap hover:bg-[#1a0080] transition-colors"

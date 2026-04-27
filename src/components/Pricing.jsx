@@ -149,7 +149,7 @@ function PricingCard({ plan, extraClass = '', index = 0 }) {
 
       {/* CTA */}
       <a
-        href="https://app.interviewer.pmaccelerator.io/"
+        href="https://interviewer.pmaccelerator.io/register"
         className={`mt-7 inline-flex items-center justify-center h-[42px] w-full rounded-[8px] font-['Geist',sans-serif] font-medium text-[15px] tracking-[-0.07px] transition-colors ${ctaClass}`}
       >
         {plan.cta}
