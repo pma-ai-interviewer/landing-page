@@ -7,7 +7,6 @@ import TermsAndConditions from './pages/TermsAndConditions.jsx'
 import AITransparency from './pages/AITransparency.jsx'
 import FAQPage from './pages/FAQ.jsx'
 import Contact from './pages/Contact.jsx'
-import WaitlistPage from './pages/Waitlist.jsx'
 import './index.css'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
@@ -20,7 +19,6 @@ ReactDOM.createRoot(document.getElementById('root')).render(
         <Route path="/ai-transparency-statement" element={<AITransparency />} />
         <Route path="/faq" element={<FAQPage />} />
         <Route path="/contact" element={<Contact />} />
-        <Route path="/waitlist" element={<WaitlistPage />} />
       </Routes>
     </BrowserRouter>
   </React.StrictMode>,
