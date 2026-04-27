@@ -1,5 +1,6 @@
-import { Link } from 'react-router-dom'
 import imgLogo from '../assets/footer/practicely-logo.png'
+
+const APP_URL = 'https://app.interviewer.pmaccelerator.io/'
 
 export default function Navbar() {
   return (
@@ -10,13 +11,21 @@ export default function Navbar() {
           <img src={imgLogo} alt="Practicely" style={{ height: '22px', width: 'auto', display: 'block' }} />
         </a>
 
-        {/* CTA */}
-        <Link
-          to="/waitlist"
-          className="inline-flex items-center justify-center bg-[#210099] rounded-[8px] h-[38px] px-[16px] font-['Geist',sans-serif] font-medium text-[15px] text-white tracking-[0.07px] whitespace-nowrap hover:bg-[#1a0080] transition-colors"
-        >
-          Join the waitlist
-        </Link>
+        {/* CTAs */}
+        <div className="flex items-center gap-[8px]">
+          <a
+            href={APP_URL}
+            className="inline-flex items-center justify-center rounded-[8px] h-[38px] px-[14px] font-['Geist',sans-serif] font-medium text-[15px] text-[#171717] tracking-[0.07px] whitespace-nowrap hover:bg-[#f4f4f5] transition-colors"
+          >
+            Log in
+          </a>
+          <a
+            href={APP_URL}
+            className="inline-flex items-center justify-center bg-[#210099] rounded-[8px] h-[38px] px-[16px] font-['Geist',sans-serif] font-medium text-[15px] text-white tracking-[0.07px] whitespace-nowrap hover:bg-[#1a0080] transition-colors"
+          >
+            Sign up
+          </a>
+        </div>
       </div>
     </nav>
   )

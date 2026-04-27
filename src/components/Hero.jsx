@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
-import { Link } from 'react-router-dom'
 import { fadeInUp } from '../hooks/useInView'
+
+const APP_URL = 'https://app.interviewer.pmaccelerator.io/'
 
 function useWindowWidth() {
   const [width, setWidth] = useState(() =>
@@ -45,13 +46,13 @@ function Frame2147236706Mobile({ mounted }) {
   return (
     <div className="content-stretch flex flex-col gap-[32px] items-center py-[24px] relative shrink-0 w-full">
       <Frame2147236703Mobile mounted={mounted} />
-      <Link
-        to="/waitlist"
+      <a
+        href={APP_URL}
         className="inline-flex items-center justify-center bg-[#210099] rounded-[8px] h-[42px] px-[24px] font-['Geist',sans-serif] font-medium text-[16px] text-white tracking-[0.07px] whitespace-nowrap hover:bg-[#1a0080] transition-colors"
         style={fadeInUp(mounted, 0.15)}
       >
-        Join the waitlist
-      </Link>
+        Get started
+      </a>
     </div>
   );
 }
@@ -188,13 +189,13 @@ function Frame2147236706Tablet({ mounted }) {
   return (
     <div className="content-stretch flex flex-col gap-[32px] items-center py-[36px] relative shrink-0 w-full">
       <Frame2147236703Tablet mounted={mounted} />
-      <Link
-        to="/waitlist"
+      <a
+        href={APP_URL}
         className="inline-flex items-center justify-center bg-[#210099] rounded-[8px] h-[42px] px-[24px] font-['Geist',sans-serif] font-medium text-[16px] text-white tracking-[0.07px] whitespace-nowrap hover:bg-[#1a0080] transition-colors"
         style={fadeInUp(mounted, 0.15)}
       >
-        Join the waitlist
-      </Link>
+        Get started
+      </a>
     </div>
   );
 }
@@ -265,13 +266,13 @@ function Frame2147236706Desktop({ mounted }) {
   return (
     <div className="content-stretch flex flex-col gap-[32px] items-center justify-center py-[64px] relative shrink-0 w-full">
       <Frame2147236703Desktop mounted={mounted} />
-      <Link
-        to="/waitlist"
+      <a
+        href={APP_URL}
         className="inline-flex items-center justify-center bg-[#210099] rounded-[8px] h-[42px] px-[24px] font-['Geist',sans-serif] font-medium text-[16px] text-white tracking-[0.07px] whitespace-nowrap hover:bg-[#1a0080] transition-colors"
         style={fadeInUp(mounted, 0.15)}
       >
-        Join the waitlist
-      </Link>
+        Get started
+      </a>
     </div>
   );
 }

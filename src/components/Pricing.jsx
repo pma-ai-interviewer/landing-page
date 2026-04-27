@@ -35,18 +35,18 @@ function Check() {
 
 const plans = [
   {
-    name: 'Free Trial',
+    name: 'Free',
     tag: null,
-    subtitle: 'Free for 7 days, then $89/mo',
+    subtitle: 'PMA unlimited free access',
     price: '$0',
-    period: '/ week',
+    period: '',
     cta: 'Get started',
     ctaVariant: 'ghost',
-    description: 'Perfect for trying out personalized AI coaching before you commit.',
+    description: 'Free unlimited access for verified PMA cohort members.',
     features: [
-      '75 mock interview sessions during trial',
+      'Unlimited mock interview sessions',
       'Access to unlimited practice questions',
-      'Comprehensive AI feedback after every session',
+      'Comprehensive AI feedback and improvement tips',
       'All question categories & difficulty levels',
     ],
   },
@@ -63,24 +63,23 @@ const plans = [
       '300 mock interview sessions per month',
       'Access to unlimited practice questions',
       'Comprehensive AI feedback and improvement tips',
+      'Performance analytics to track your growth over time',
       'All question categories & difficulty levels',
     ],
   },
   {
-    name: 'Premium',
+    name: 'Session Packs',
     tag: null,
-    subtitle: 'Intensive mastery-level preparation',
-    price: '$149',
-    period: '/ month',
-    cta: 'Sign up',
+    subtitle: 'Pay as you go for extra sessions',
+    price: 'From $4',
+    period: 'one-time',
+    cta: 'Buy sessions',
     ctaVariant: 'dark',
-    description: 'Best for candidates preparing intensively and aiming for consistent, measurable growth.',
+    description: 'Add more mock interviews anytime. Pack credits apply after your monthly included sessions are used.',
     features: [
-      'Unlimited mock interview sessions',
-      'Unlimited practice questions',
-      'Comprehensive AI feedback and improvement tips',
-      'Performance analytics to track your growth',
-      'All question categories & difficulty levels',
+      '10 sessions — $4',
+      '50 sessions — $18',
+      '100 sessions — $30',
     ],
   },
 ]
@@ -148,15 +147,13 @@ function PricingCard({ plan, extraClass = '', index = 0 }) {
         ))}
       </ul>
 
-      {/* CTA — hidden during waitlist phase, re-enable when launching */}
-      {/* <a
+      {/* CTA */}
+      <a
         href="https://app.interviewer.pmaccelerator.io/"
-        target="_blank"
-        rel="noreferrer"
         className={`mt-7 inline-flex items-center justify-center h-[42px] w-full rounded-[8px] font-['Geist',sans-serif] font-medium text-[15px] tracking-[-0.07px] transition-colors ${ctaClass}`}
       >
         {plan.cta}
-      </a> */}
+      </a>
 
       {/* Note */}
       <p className="mt-6 font-['Geist',sans-serif] font-normal text-[#a3a3a3] text-[12px] leading-[1.5] text-center">
