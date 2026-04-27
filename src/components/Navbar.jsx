@@ -1,6 +1,7 @@
 import imgLogo from '../assets/footer/practicely-logo.png'
 
-const APP_URL = 'https://app.interviewer.pmaccelerator.io/'
+const LOGIN_URL = 'https://interviewer.pmaccelerator.io/login'
+const REGISTER_URL = 'https://interviewer.pmaccelerator.io/register'
 
 export default function Navbar() {
   return (
@@ -14,13 +15,13 @@ export default function Navbar() {
         {/* CTAs */}
         <div className="flex items-center gap-[8px]">
           <a
-            href={APP_URL}
+            href={LOGIN_URL}
             className="inline-flex items-center justify-center rounded-[8px] h-[38px] px-[14px] font-['Geist',sans-serif] font-medium text-[15px] text-[#171717] tracking-[0.07px] whitespace-nowrap hover:bg-[#f4f4f5] transition-colors"
           >
             Log in
           </a>
           <a
-            href={APP_URL}
+            href={REGISTER_URL}
             className="inline-flex items-center justify-center bg-[#210099] rounded-[8px] h-[38px] px-[16px] font-['Geist',sans-serif] font-medium text-[15px] text-white tracking-[0.07px] whitespace-nowrap hover:bg-[#1a0080] transition-colors"
           >
             Sign up
