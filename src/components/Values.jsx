@@ -240,7 +240,7 @@ function ValuesMobile() {
         </div>
         <div className="flex flex-col gap-[20px] w-full">
           {cards.map((card, i) => (
-            <ValueCard key={i} card={card} aspectClass="aspect-[4/5]" titleSize="text-[24px]" index={i} />
+            <ValueCard key={i} card={card} aspectClass="aspect-[4/5]" titleSize="text-[20px]" index={i} />
           ))}
         </div>
       </div>
@@ -260,7 +260,7 @@ function ValuesTablet() {
         </div>
         <div className="flex gap-[20px] items-stretch w-full">
           {cards.map((card, i) => (
-            <ValueCard key={i} card={card} aspectClass="aspect-[4/5]" titleSize="text-[22px]" index={i} />
+            <ValueCard key={i} card={card} aspectClass="aspect-[4/5]" titleSize="text-[20px]" index={i} />
           ))}
         </div>
       </div>
@@ -280,7 +280,7 @@ function ValuesDesktop() {
         </div>
         <div className="flex gap-[24px] items-stretch w-full">
           {cards.map((card, i) => (
-            <ValueCard key={i} card={card} aspectClass="aspect-[4/5]" titleSize="text-[28px]" index={i} />
+            <ValueCard key={i} card={card} aspectClass="aspect-[4/5]" titleSize="text-[20px]" index={i} />
           ))}
         </div>
       </div>
