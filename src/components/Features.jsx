@@ -58,19 +58,22 @@ function IconFeedback() {
 
 function IconProgress() {
   return (
-    <svg width="143" height="112" viewBox="0 0 143 112" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <svg width="112" height="112" viewBox="0 0 112 112" fill="none" xmlns="http://www.w3.org/2000/svg">
       {/* Circular background — matches IconAnywhere */}
-      <rect x="15.5" width="112" height="112" rx="56" fill="#fa6400" fillOpacity="0.12" />
-      <rect x="10" y="60" width="20" height="42" rx="4" fill="#fa6400" fillOpacity="0.4" />
-      <rect x="38" y="44" width="20" height="58" rx="4" fill="#fa6400" fillOpacity="0.6" />
-      <rect x="66" y="28" width="20" height="74" rx="4" fill="#fa6400" fillOpacity="0.8" />
-      <rect x="94" y="12" width="20" height="90" rx="4" fill="#fa6400" />
-      <rect x="8" y="105" width="127" height="3" rx="1.5" fill="#fa6400" opacity="0.3" />
-      <polyline points="20,58 48,42 76,26 104,10" stroke="#c44f00" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" fill="none" />
-      <circle cx="20" cy="58" r="4" fill="#fff0e6" stroke="#c44f00" strokeWidth="2" />
-      <circle cx="48" cy="42" r="4" fill="#fff0e6" stroke="#c44f00" strokeWidth="2" />
-      <circle cx="76" cy="26" r="4" fill="#fff0e6" stroke="#c44f00" strokeWidth="2" />
-      <circle cx="104" cy="10" r="4" fill="#c44f00" />
+      <rect width="112" height="112" rx="56" fill="#fa6400" fillOpacity="0.12" />
+      {/* Bars (ascending) — fit inside the circle */}
+      <rect x="22" y="66" width="14" height="22" rx="3" fill="#fa6400" fillOpacity="0.4" />
+      <rect x="42" y="56" width="14" height="32" rx="3" fill="#fa6400" fillOpacity="0.6" />
+      <rect x="62" y="46" width="14" height="42" rx="3" fill="#fa6400" fillOpacity="0.8" />
+      <rect x="82" y="36" width="14" height="52" rx="3" fill="#fa6400" />
+      {/* Baseline */}
+      <rect x="20" y="91" width="78" height="2.5" rx="1.25" fill="#fa6400" opacity="0.3" />
+      {/* Trend line + dots */}
+      <polyline points="29,66 49,56 69,46 89,36" stroke="#c44f00" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" fill="none" />
+      <circle cx="29" cy="66" r="3" fill="#fff0e6" stroke="#c44f00" strokeWidth="1.6" />
+      <circle cx="49" cy="56" r="3" fill="#fff0e6" stroke="#c44f00" strokeWidth="1.6" />
+      <circle cx="69" cy="46" r="3" fill="#fff0e6" stroke="#c44f00" strokeWidth="1.6" />
+      <circle cx="89" cy="36" r="3.5" fill="#c44f00" />
     </svg>
   )
 }
@@ -126,7 +129,7 @@ const cards = [
 function FeaturesMobile() {
   const [headingRef, headingInView] = useInView()
   return (
-    <section className="w-full px-[16px] py-[48px]">
+    <section className="w-full px-[16px] py-[48px]" style={{ backgroundImage: 'linear-gradient(to right, rgba(0,0,0,0.025) 1px, transparent 1px), linear-gradient(to bottom, rgba(0,0,0,0.025) 1px, transparent 1px)', backgroundSize: '32px 32px' }}>
       <div className="flex flex-col gap-[48px] items-center w-full">
         <div ref={headingRef} className="flex flex-col gap-[8px] items-center w-full" style={fadeInUp(headingInView)}>
           <p className="font-['Inter',sans-serif] font-semibold not-italic text-[#525252] text-[16px] leading-[18px] text-center tracking-[-0.48px]">WHAT YOU GET</p>
@@ -147,7 +150,7 @@ function FeaturesMobile() {
 function FeaturesTablet() {
   const [headingRef, headingInView] = useInView()
   return (
-    <section className="w-full px-[40px] py-[56px]">
+    <section className="w-full px-[40px] py-[56px]" style={{ backgroundImage: 'linear-gradient(to right, rgba(0,0,0,0.025) 1px, transparent 1px), linear-gradient(to bottom, rgba(0,0,0,0.025) 1px, transparent 1px)', backgroundSize: '32px 32px' }}>
       <div className="flex flex-col gap-[48px] items-center w-full">
         <div ref={headingRef} className="flex flex-col gap-[8px] items-center w-full" style={fadeInUp(headingInView)}>
           <p className="font-['Inter',sans-serif] font-semibold not-italic text-[#525252] text-[16px] leading-[18px] text-center tracking-[-0.48px]">WHAT YOU GET</p>
@@ -168,7 +171,7 @@ function FeaturesTablet() {
 function FeaturesDesktop() {
   const [headingRef, headingInView] = useInView()
   return (
-    <section className="w-full px-[120px] py-[80px]">
+    <section className="w-full px-[120px] py-[80px]" style={{ backgroundImage: 'linear-gradient(to right, rgba(0,0,0,0.025) 1px, transparent 1px), linear-gradient(to bottom, rgba(0,0,0,0.025) 1px, transparent 1px)', backgroundSize: '32px 32px' }}>
       <div className="flex flex-col gap-[48px] items-center max-w-[1500px] mx-auto">
         <div ref={headingRef} className="flex flex-col gap-[8px] items-center" style={fadeInUp(headingInView)}>
           <p className="font-['Inter',sans-serif] font-semibold not-italic text-[#525252] text-[16px] leading-[18px] text-center tracking-[-0.48px]">WHAT YOU GET</p>
