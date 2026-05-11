@@ -20,7 +20,7 @@ function useWindowWidth() {
 function Frame2147236750Mobile() {
   return (
     <div className="content-stretch flex flex-[1_0_0] flex-col items-center justify-center min-h-px min-w-px relative">
-      <p className="font-['Geist',sans-serif] font-medium leading-[20px] relative shrink-0 text-[#737373] text-[16px] text-center w-full">The first AI Interviewer built exclusively for product managers</p>
+      <p className="font-['Geist',sans-serif] font-normal leading-[24px] relative shrink-0 text-[#737373] text-[18px] text-center w-full">The first AI Interviewer built exclusively for product managers</p>
     </div>
   );
 }
@@ -36,7 +36,7 @@ function Frame2147236704Mobile({ mounted }) {
 function Frame2147236703Mobile({ mounted }) {
   return (
     <div className="content-stretch flex flex-col gap-[24px] items-center relative shrink-0 w-full">
-      <h1 className="block font-['Geist',sans-serif] font-medium leading-[40px] relative shrink-0 text-[#171717] text-[36px] text-center tracking-[-1.08px] w-full" style={fadeInUp(mounted, 0)}>Turn every product manager interview into an offer</h1>
+      <h1 className="block font-['Geist',sans-serif] font-medium leading-[40px] relative shrink-0 text-[#171717] text-[36px] text-center tracking-[-1.08px] w-full" style={fadeInUp(mounted, 0)}>Turn every product manager interview into an <span className="bg-gradient-to-r from-[#fa6400] to-[#ff9248] bg-clip-text text-transparent">offer</span></h1>
       <Frame2147236704Mobile mounted={mounted} />
     </div>
   );
@@ -159,7 +159,7 @@ function Frame2147236792Mobile({ mounted }) {
 function Frame2147236750Tablet() {
   return (
     <div className="content-stretch flex flex-col items-center justify-center relative shrink-0">
-      <p className="font-['Geist',sans-serif] font-medium leading-[22px] relative shrink-0 text-[#737373] text-[18px] text-center whitespace-nowrap">The first AI Interviewer built exclusively for product managers</p>
+      <p className="font-['Geist',sans-serif] font-normal leading-[26px] relative shrink-0 text-[#737373] text-[20px] text-center whitespace-nowrap">The first AI Interviewer built exclusively for product managers</p>
     </div>
   );
 }
@@ -179,7 +179,7 @@ function Frame2147236704Tablet({ mounted }) {
 function Frame2147236703Tablet({ mounted }) {
   return (
     <div className="content-stretch flex flex-col gap-[24px] items-center relative shrink-0 w-full">
-      <h1 className="block font-['Geist',sans-serif] font-medium leading-[52px] relative shrink-0 text-[#171717] text-[48px] text-center tracking-[-1.44px] w-full" style={fadeInUp(mounted, 0)}>Turn every product manager interview into an offer</h1>
+      <h1 className="block font-['Geist',sans-serif] font-medium leading-[52px] relative shrink-0 text-[#171717] text-[48px] text-center tracking-[-1.44px] w-full" style={fadeInUp(mounted, 0)}>Turn every product manager interview into an <span className="bg-gradient-to-r from-[#fa6400] to-[#ff9248] bg-clip-text text-transparent">offer</span></h1>
       <Frame2147236704Tablet mounted={mounted} />
     </div>
   );
@@ -236,7 +236,7 @@ function Frame2147236792Tablet({ mounted }) {
 function Frame2147236750Desktop() {
   return (
     <div className="content-stretch flex flex-col items-center justify-center relative shrink-0 w-[1064px]">
-      <p className="font-['Geist',sans-serif] font-medium leading-[22px] relative shrink-0 text-[#737373] text-[18px] text-center whitespace-nowrap">The first AI Interviewer built exclusively for product managers</p>
+      <p className="font-['Geist',sans-serif] font-normal leading-[26px] relative shrink-0 text-[#737373] text-[20px] text-center whitespace-nowrap">The first AI Interviewer built exclusively for product managers</p>
     </div>
   );
 }
@@ -256,7 +256,7 @@ function Frame2147236704Desktop({ mounted }) {
 function Frame2147236703Desktop({ mounted }) {
   return (
     <div className="content-stretch flex flex-col gap-[24px] items-center relative shrink-0 w-full">
-      <h1 className="block font-['Geist',sans-serif] font-medium leading-[68px] relative shrink-0 text-[#171717] text-[64px] text-center tracking-[-1.92px] w-full" style={fadeInUp(mounted, 0)}>Turn every product manager interview into an offer</h1>
+      <h1 className="block font-['Geist',sans-serif] font-medium leading-[68px] relative shrink-0 text-[#171717] text-[64px] text-center tracking-[-1.92px] w-full" style={fadeInUp(mounted, 0)}>Turn every product manager interview into an <span className="bg-gradient-to-r from-[#fa6400] to-[#ff9248] bg-clip-text text-transparent">offer</span></h1>
       <Frame2147236704Desktop mounted={mounted} />
     </div>
   );
