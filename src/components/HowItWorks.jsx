@@ -116,7 +116,7 @@ function HowItWorksContainerMobile() {
               imageSlot={
                 <div className="bg-[#fafafa] h-[226px] relative rounded-[16px] shrink-0 w-full">
                   <div className="flex flex-col items-center justify-center size-full p-[24px]">
-                    <div className="h-[163.862px] relative shrink-0 w-[264px]">
+                    <div className="h-[163.862px] relative shrink-0 w-full max-w-[264px]">
                       <img alt="" className="absolute inset-0 max-w-none object-cover pointer-events-none size-full" src={imgQuestions} />
                     </div>
                   </div>
@@ -152,7 +152,7 @@ function HowItWorksContainerMobile() {
               imageSlot={
                 <div className="bg-[#fafafa] h-[226px] relative rounded-[16px] shrink-0 w-full">
                   <div className="flex flex-col items-center justify-center size-full p-[24px]">
-                    <div className="h-[183.125px] relative shrink-0 w-[289px]">
+                    <div className="h-[183.125px] relative shrink-0 w-full max-w-[289px]">
                       <img alt="" className="absolute inset-0 max-w-none object-cover pointer-events-none size-full" src={imgFeedback} />
                     </div>
                   </div>
