@@ -71,13 +71,22 @@ function ConnectorH({ width = 48 }) {
   )
 }
 
-// S-curve sweeping from upper-right to lower-left across a row gap (desktop only)
-function ConnectorDiagonal({ height = 100 }) {
+// Meandering journey path from upper-right to lower-left across a row gap (desktop only)
+function ConnectorDiagonal({ height = 64 }) {
+  // Hand-tuned cubic beziers create a natural, gently meandering line
+  // with 3 soft swings rather than one long S, so it reads as a path.
+  const h = height
+  const d = [
+    `M 870 0`,
+    `C 940 ${h * 0.18}, 880 ${h * 0.34}, 700 ${h * 0.38}`,
+    `C 540 ${h * 0.42}, 560 ${h * 0.62}, 420 ${h * 0.66}`,
+    `C 280 ${h * 0.7},  320 ${h * 0.86}, 130 ${h}`,
+  ].join(' ')
   return (
     <div aria-hidden="true" className="w-full self-stretch" style={{ height }}>
       <svg width="100%" height={height} viewBox={`0 0 1000 ${height}`} preserveAspectRatio="none" fill="none">
         <path
-          d={`M 850 0 C 850 ${height * 0.55}, 150 ${height * 0.45}, 150 ${height}`}
+          d={d}
           stroke={DOT_STROKE}
           strokeOpacity={DOT_OPACITY}
           strokeWidth="3"
@@ -397,7 +406,7 @@ function HowItWorksContainerDesktop() {
               }
             />
           </div>
-          <ConnectorDiagonal height={100} />
+          <ConnectorDiagonal height={64} />
           {/* Row 2 */}
           <div ref={row2Ref} className="content-stretch flex gap-[28px] items-start justify-center relative shrink-0 w-full" style={fadeInUp(row2InView, 0.15)}>
             <StepCardDesktop
