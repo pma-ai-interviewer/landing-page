@@ -98,7 +98,7 @@ export default function CTABanner() {
       : 'text-[40px] leading-[44px] tracking-[-1.2px]'
 
   return (
-    <section className="relative overflow-hidden w-full bg-gradient-to-br from-[#fde8d4] to-[#fac9a0] py-[80px] px-[24px]">
+    <section className="relative overflow-hidden w-full bg-gradient-to-br from-[#fde8d4] to-[#fac9a0] py-[140px] px-[24px]">
       <SparkleField />
       <div ref={ref} className="relative flex flex-col items-center gap-[16px] text-center max-w-[800px] mx-auto" style={fadeInUp(inView)}>
         <h2 className={`font-['Geist',sans-serif] font-medium text-[#171717] ${headingClass}`}>
