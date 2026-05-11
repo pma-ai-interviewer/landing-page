@@ -75,27 +75,32 @@ function FemaleAvatar({ bg, hair, clothing }) {
   )
 }
 
-function MaleAvatar({ bg, hair, clothing }) {
+function KeithAvatar() {
   return (
     <svg width="40" height="40" viewBox="0 0 40 40" fill="none" aria-hidden="true">
-      <circle cx="20" cy="20" r="20" fill={bg} />
-      {/* Clothing — broader shoulders */}
-      <path d="M4 40 Q5 29 20 27 Q35 29 36 40Z" fill={clothing} />
+      {/* Green background */}
+      <circle cx="20" cy="20" r="20" fill="#60c055" />
+      {/* Depth shadow behind figure */}
+      <ellipse cx="20" cy="33" rx="14" ry="9" fill="#3a8c35" opacity="0.55" />
+      {/* Dark jacket — broad shoulders, V-neck */}
+      <path d="M3 40 Q4 27 13 24 L16.5 28.5 L20 34 L23.5 28.5 L27 24 Q36 27 37 40Z" fill="#35294e" />
+      {/* Blue shirt visible at V */}
+      <path d="M16.5 28.5 L20 34 L23.5 28.5 L22 26 Q20 27 18 26Z" fill="#4a8fd4" />
       {/* Neck */}
-      <rect x="17.5" y="21" width="5" height="6" rx="1" fill={SKIN} />
+      <rect x="17.5" y="21" width="5" height="5.5" rx="1" fill={SKIN} />
       {/* Face */}
       <circle cx="20" cy="14.5" r="7.5" fill={SKIN} />
-      {/* Short hair */}
-      <path d="M12.5 13 Q13 5.5 20 5 Q27 5.5 27.5 13 Q25 9 20 9 Q15 9 12.5 13Z" fill={hair} />
-      {/* Beard */}
-      <path d="M14 17.5 Q14.5 23.5 20 24 Q25.5 23.5 26 17.5 Q23 20.5 20 20.5 Q17 20.5 14 17.5Z" fill={hair} opacity="0.8" />
+      {/* Short dark hair with slight side sweep */}
+      <path d="M12.5 13 Q13 5.5 20 5 Q27 5.5 27.5 13 Q25 9 20 9 Q15 9 12.5 13Z" fill="#1a1a2e" />
+      <path d="M12.5 11 Q11.5 8 13.5 6.5" stroke="#1a1a2e" strokeWidth="2" strokeLinecap="round" />
     </svg>
   )
 }
 
-function Avatar({ bg, hair, clothing, gender }) {
+function Avatar({ bg, hair, clothing, gender, name }) {
+  if (name === 'Keith M.') return <KeithAvatar />
   return gender === 'male'
-    ? <MaleAvatar bg={bg} hair={hair} clothing={clothing} />
+    ? null
     : <FemaleAvatar bg={bg} hair={hair} clothing={clothing} />
 }
 
@@ -104,7 +109,7 @@ function TestimonialCard({ quote, name, role, gender, avatarBg, avatarHair, avat
     <div className="bg-white border border-[#e5e5e5] rounded-[16px] p-[24px] flex flex-col gap-[14px] shrink-0 w-[360px]">
       <p className="font-['Geist',sans-serif] font-normal text-[#525252] text-[15px] leading-[1.6] flex-1">{quote}</p>
       <div className="flex items-center gap-[12px]">
-        <Avatar bg={avatarBg} hair={avatarHair} clothing={avatarClothing} gender={gender} />
+        <Avatar bg={avatarBg} hair={avatarHair} clothing={avatarClothing} gender={gender} name={name} />
         <div>
           <p className="font-['Geist',sans-serif] font-medium text-[#171717] text-[14px] leading-[1.4]">{name}</p>
           <p className="font-['Geist',sans-serif] font-normal text-[#737373] text-[14px] leading-[1.4]">{role}</p>
