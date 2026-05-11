@@ -240,6 +240,64 @@ function Frame2147236792Desktop({ mounted }) {
   );
 }
 
+// ─── Sparkles ──────────────────────────────────────────────────────────────
+
+function HeroSparkle({ size = 24, color = '#fa6400', opacity = 1 }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill={color} style={{ opacity }} aria-hidden="true">
+      <path d="M12 2 L13.6 9 a3 3 0 0 0 1.9 1.9 L22 12 l-6.5 1.6 a3 3 0 0 0 -1.9 1.9 L12 22 l-1.6 -6.5 a3 3 0 0 0 -1.9 -1.9 L2 12 l6.5 -1.1 a3 3 0 0 0 1.9 -1.9 z" />
+    </svg>
+  )
+}
+
+function HeroPlus({ size = 12, color = '#fa6400', opacity = 1 }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 12 12" fill="none" stroke={color} strokeWidth="2" strokeLinecap="round" style={{ opacity }} aria-hidden="true">
+      <path d="M6 1v10M1 6h10" />
+    </svg>
+  )
+}
+
+const heroSparkles = [
+  { type: 's', size: 22, top: '8%',  left: '6%',  opacity: 0.45, color: '#fa6400', dur: 9 },
+  { type: 'p', size: 14, top: '20%', left: '12%', opacity: 0.5,  color: '#fa6400', dur: 11 },
+  { type: 's', size: 16, top: '54%', left: '4%',  opacity: 0.4,  color: '#ff9248', dur: 10 },
+  { type: 's', size: 14, top: '78%', left: '9%',  opacity: 0.35, color: '#fa6400', dur: 12 },
+  { type: 'p', size: 10, top: '88%', left: '18%', opacity: 0.5,  color: '#fa6400', dur: 8 },
+  { type: 's', size: 24, top: '12%', left: '90%', opacity: 0.45, color: '#fa6400', dur: 10 },
+  { type: 'p', size: 12, top: '34%', left: '94%', opacity: 0.55, color: '#fa6400', dur: 13 },
+  { type: 's', size: 18, top: '60%', left: '92%', opacity: 0.4,  color: '#ff9248', dur: 9 },
+  { type: 's', size: 14, top: '84%', left: '88%', opacity: 0.35, color: '#fa6400', dur: 11 },
+  { type: 'p', size: 10, top: '6%',  left: '50%', opacity: 0.4,  color: '#fa6400', dur: 14 },
+]
+
+function HeroSparkles() {
+  return (
+    <>
+      <style>{`
+        @keyframes hero-twinkle {
+          0%, 100% { transform: scale(0.8) rotate(0deg);  opacity: 0.3; }
+          50%      { transform: scale(1.1) rotate(15deg); opacity: 1; }
+        }
+        .hero-sparkle { animation: hero-twinkle var(--dur, 10s) ease-in-out infinite; transform-origin: center; }
+      `}</style>
+      <div aria-hidden="true" className="pointer-events-none absolute inset-0 overflow-hidden">
+        {heroSparkles.map((s, i) => (
+          <div
+            key={i}
+            className="hero-sparkle absolute"
+            style={{ top: s.top, left: s.left, '--dur': `${s.dur}s`, animationDelay: `${(i * 0.7) % 6}s` }}
+          >
+            {s.type === 's'
+              ? <HeroSparkle size={s.size} color={s.color} opacity={s.opacity} />
+              : <HeroPlus size={s.size} color={s.color} opacity={s.opacity} />}
+          </div>
+        ))}
+      </div>
+    </>
+  )
+}
+
 // ─── Export ────────────────────────────────────────────────────────────────
 
 export default function HeroContainer() {
@@ -249,7 +307,15 @@ export default function HeroContainer() {
     const t = setTimeout(() => setMounted(true), 50)
     return () => clearTimeout(t)
   }, [])
-  if (width < 800) return <Frame2147236792Mobile mounted={mounted} />
-  if (width < 1280) return <Frame2147236792Tablet mounted={mounted} />
-  return <Frame2147236792Desktop mounted={mounted} />
+  const inner = width < 800
+    ? <Frame2147236792Mobile mounted={mounted} />
+    : width < 1280
+      ? <Frame2147236792Tablet mounted={mounted} />
+      : <Frame2147236792Desktop mounted={mounted} />
+  return (
+    <div className="relative w-full overflow-hidden">
+      <HeroSparkles />
+      <div className="relative">{inner}</div>
+    </div>
+  )
 }
