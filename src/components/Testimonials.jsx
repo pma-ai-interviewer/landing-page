@@ -96,10 +96,59 @@ function Header({ labelSize, headingSize, headingLeading, headingTracking, py })
   const [ref, inView] = useInView()
   return (
     <div ref={ref} className="flex flex-col gap-[8px] items-center text-center w-full" style={fadeInUp(inView)}>
-      <p className={`font-['Inter',sans-serif] font-semibold not-italic text-[#525252] uppercase tracking-[-0.48px] leading-[18px] ${labelSize}`}>TESTIMONIALS</p>
-      <h3 className={`font-['Geist',sans-serif] font-medium text-[#171717] w-full ${headingSize} ${headingLeading} ${headingTracking}`}>Don't just take our word for it</h3>
-      <p className="font-['Geist',sans-serif] font-normal text-[#737373] text-[16px] leading-[1.6]">Tested and refined with input from hiring managers and ex-FAANG PMs.</p>
+      <p className={`font-['Inter',sans-serif] font-semibold not-italic text-white/90 uppercase tracking-[-0.48px] leading-[18px] ${labelSize}`}>TESTIMONIALS</p>
+      <h3 className={`font-['Geist',sans-serif] font-medium text-white w-full ${headingSize} ${headingLeading} ${headingTracking}`}>Don't just take our word for it</h3>
+      <p className="font-['Geist',sans-serif] font-normal text-white/85 text-[16px] leading-[1.6]">Tested and refined with input from hiring managers and ex-FAANG PMs.</p>
     </div>
+  )
+}
+
+// ─── Star field background ────────────────────────────────────────────────────
+
+function Star({ size = 16, opacity = 1 }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="white" style={{ opacity }} aria-hidden="true">
+      <path d="M12 2 L14.5 9 L22 9 L16 13.6 L18.2 21 L12 16.6 L5.8 21 L8 13.6 L2 9 L9.5 9 Z" />
+    </svg>
+  )
+}
+
+const testimonialStars = [
+  { size: 22, top: '12%', left: '6%',  opacity: 0.30, dur: 9 },
+  { size: 14, top: '36%', left: '12%', opacity: 0.40, dur: 11 },
+  { size: 18, top: '70%', left: '5%',  opacity: 0.30, dur: 10 },
+  { size: 12, top: '88%', left: '18%', opacity: 0.45, dur: 13 },
+  { size: 16, top: '20%', left: '90%', opacity: 0.35, dur: 12 },
+  { size: 24, top: '50%', left: '94%', opacity: 0.30, dur: 9 },
+  { size: 14, top: '78%', left: '88%', opacity: 0.40, dur: 11 },
+  { size: 12, top: '8%',  left: '48%', opacity: 0.30, dur: 14 },
+  { size: 18, top: '92%', left: '52%', opacity: 0.30, dur: 10 },
+  { size: 14, top: '24%', left: '34%', opacity: 0.30, dur: 12 },
+  { size: 12, top: '64%', left: '70%', opacity: 0.35, dur: 11 },
+]
+
+function TestimonialStars() {
+  return (
+    <>
+      <style>{`
+        @keyframes test-twinkle {
+          0%, 100% { transform: scale(0.85) rotate(0deg);  opacity: 0.25; }
+          50%      { transform: scale(1.1)  rotate(20deg); opacity: 1; }
+        }
+        .test-star { animation: test-twinkle var(--dur, 10s) ease-in-out infinite; transform-origin: center; }
+      `}</style>
+      <div aria-hidden="true" className="pointer-events-none absolute inset-0 overflow-hidden">
+        {testimonialStars.map((s, i) => (
+          <div
+            key={i}
+            className="test-star absolute"
+            style={{ top: s.top, left: s.left, '--dur': `${s.dur}s`, animationDelay: `${(i * 0.55) % 5}s` }}
+          >
+            <Star size={s.size} opacity={s.opacity} />
+          </div>
+        ))}
+      </div>
+    </>
   )
 }
 
@@ -110,7 +159,7 @@ export default function TestimonialsContainer() {
 
   if (width < 800) {
     return (
-      <section className="flex flex-col gap-[32px] items-center py-[48px] w-full overflow-hidden bg-gradient-to-br from-[#fde8d4] to-[#fac9a0]">
+      <section className="relative flex flex-col gap-[32px] items-center py-[48px] w-full overflow-hidden bg-[#fa6400]"><TestimonialStars />
         <div className="px-[16px] w-full">
           <Header labelSize="text-[16px]" headingSize="text-[32px]" headingLeading="leading-[36px]" headingTracking="tracking-[-0.96px]" />
         </div>
@@ -121,7 +170,7 @@ export default function TestimonialsContainer() {
 
   if (width < 1280) {
     return (
-      <section className="flex flex-col gap-[48px] items-center py-[56px] w-full overflow-hidden bg-gradient-to-br from-[#fde8d4] to-[#fac9a0]">
+      <section className="relative flex flex-col gap-[48px] items-center py-[56px] w-full overflow-hidden bg-[#fa6400]"><TestimonialStars />
         <div className="px-[40px] w-full">
           <Header labelSize="text-[16px]" headingSize="text-[36px]" headingLeading="leading-[40px]" headingTracking="tracking-[-1.08px]" />
         </div>
@@ -131,7 +180,7 @@ export default function TestimonialsContainer() {
   }
 
   return (
-    <section className="flex flex-col gap-[48px] items-center py-[80px] w-full overflow-hidden bg-gradient-to-br from-[#fde8d4] to-[#fac9a0]">
+    <section className="relative flex flex-col gap-[48px] items-center py-[80px] w-full overflow-hidden bg-[#fa6400]"><TestimonialStars />
       <div className="px-[40px] w-full max-w-[900px] mx-auto">
         <Header labelSize="text-[16px]" headingSize="text-[48px]" headingLeading="leading-[52px]" headingTracking="tracking-[-1.44px]" />
       </div>
