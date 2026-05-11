@@ -15,16 +15,18 @@ function useWindowWidth() {
 
 // ─── Placeholder icons ────────────────────────────────────────────────────────
 
+// Brand palette: primary #fa6400, light #ff9248, tint #fff0e6, deep #c44f00
+
 function IconAnywhere() {
   return (
     <svg width="112" height="112" viewBox="0 0 112 112" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <rect width="112" height="112" rx="56" fill="#ED833B" fillOpacity="0.15" />
-      <rect x="32" y="26" width="48" height="60" rx="6" fill="#ED833B" />
+      <rect width="112" height="112" rx="56" fill="#fa6400" fillOpacity="0.12" />
+      <rect x="32" y="26" width="48" height="60" rx="6" fill="#fa6400" />
       <rect x="38" y="32" width="36" height="42" rx="3" fill="#fff0e6" />
       <circle cx="56" cy="79" r="3" fill="#fff0e6" opacity="0.7" />
-      <rect x="44" y="38" width="24" height="3" rx="1.5" fill="#ED833B" opacity="0.5" />
-      <rect x="44" y="45" width="18" height="3" rx="1.5" fill="#ED833B" opacity="0.4" />
-      <rect x="44" y="52" width="20" height="3" rx="1.5" fill="#ED833B" opacity="0.35" />
+      <rect x="44" y="38" width="24" height="3" rx="1.5" fill="#fa6400" opacity="0.5" />
+      <rect x="44" y="45" width="18" height="3" rx="1.5" fill="#fa6400" opacity="0.4" />
+      <rect x="44" y="52" width="20" height="3" rx="1.5" fill="#fa6400" opacity="0.35" />
     </svg>
   )
 }
@@ -33,19 +35,19 @@ function IconFeedback() {
   return (
     <svg width="112" height="112" viewBox="0 0 112 112" fill="none" xmlns="http://www.w3.org/2000/svg">
       {/* Circular background */}
-      <circle cx="56" cy="56" r="56" fill="#fde8d4" />
+      <circle cx="56" cy="56" r="56" fill="#fff0e6" />
       {/* Large speech bubble */}
-      <rect x="18" y="24" width="62" height="46" rx="10" fill="#d4784a" />
+      <rect x="18" y="24" width="62" height="46" rx="10" fill="#fa6400" />
       {/* Tail bottom-left */}
-      <path d="M28 70 L20 84 L44 70Z" fill="#d4784a" />
+      <path d="M28 70 L20 84 L44 70Z" fill="#fa6400" />
       {/* Text lines */}
-      <rect x="28" y="36" width="42" height="5" rx="2.5" fill="white" opacity="0.6" />
-      <rect x="28" y="47" width="32" height="5" rx="2.5" fill="white" opacity="0.4" />
-      <rect x="28" y="58" width="38" height="5" rx="2.5" fill="white" opacity="0.3" />
+      <rect x="28" y="36" width="42" height="5" rx="2.5" fill="white" opacity="0.7" />
+      <rect x="28" y="47" width="32" height="5" rx="2.5" fill="white" opacity="0.5" />
+      <rect x="28" y="58" width="38" height="5" rx="2.5" fill="white" opacity="0.35" />
       {/* Small speech bubble */}
-      <rect x="58" y="60" width="38" height="30" rx="8" fill="#a04020" />
+      <rect x="58" y="60" width="38" height="30" rx="8" fill="#c44f00" />
       {/* Tail upper-left */}
-      <path d="M68 60 L58 50 L80 60Z" fill="#a04020" />
+      <path d="M68 60 L58 50 L80 60Z" fill="#c44f00" />
       {/* Typing dots */}
       <circle cx="69" cy="75" r="3" fill="white" />
       <circle cx="77" cy="75" r="3" fill="white" opacity="0.65" />
@@ -57,11 +59,11 @@ function IconFeedback() {
 function IconProgress() {
   return (
     <svg width="143" height="112" viewBox="0 0 143 112" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <rect x="10" y="60" width="20" height="42" rx="4" fill="#E65C00" fillOpacity="0.5" />
-      <rect x="38" y="44" width="20" height="58" rx="4" fill="#E65C00" fillOpacity="0.65" />
-      <rect x="66" y="28" width="20" height="74" rx="4" fill="#E65C00" fillOpacity="0.8" />
-      <rect x="94" y="12" width="20" height="90" rx="4" fill="#E65C00" />
-      <rect x="8" y="105" width="127" height="3" rx="1.5" fill="#E65C00" opacity="0.3" />
+      <rect x="10" y="60" width="20" height="42" rx="4" fill="#fa6400" fillOpacity="0.4" />
+      <rect x="38" y="44" width="20" height="58" rx="4" fill="#fa6400" fillOpacity="0.6" />
+      <rect x="66" y="28" width="20" height="74" rx="4" fill="#fa6400" fillOpacity="0.8" />
+      <rect x="94" y="12" width="20" height="90" rx="4" fill="#fa6400" />
+      <rect x="8" y="105" width="127" height="3" rx="1.5" fill="#fa6400" opacity="0.3" />
       <polyline points="20,58 48,42 76,26 104,10" stroke="#c44f00" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" fill="none" />
       <circle cx="20" cy="58" r="4" fill="#fff0e6" stroke="#c44f00" strokeWidth="2" />
       <circle cx="48" cy="42" r="4" fill="#fff0e6" stroke="#c44f00" strokeWidth="2" />
@@ -78,7 +80,13 @@ function BentoCard({ icon, title, description, cardClass, index = 0 }) {
   return (
     <div ref={ref} className={`shrink-0 ${cardClass}`} style={fadeInUp(inView, index * 0.1)}>
       <div
-        className="bg-[#f5f5f5] relative rounded-[16px] flex flex-col items-center justify-center shadow-[0_2px_6px_rgba(0,0,0,0.04),0_6px_20px_rgba(0,0,0,0.07)] transition-all duration-300 ease-out hover:scale-[1.03] hover:shadow-[0_6px_16px_rgba(0,0,0,0.10),0_16px_40px_rgba(0,0,0,0.10)] w-full h-full"
+        className="relative rounded-[16px] overflow-hidden flex flex-col items-center justify-center shadow-[0_2px_6px_rgba(0,0,0,0.04),0_6px_20px_rgba(0,0,0,0.07)] transition-all duration-300 ease-out hover:scale-[1.03] hover:shadow-[0_6px_16px_rgba(0,0,0,0.10),0_16px_40px_rgba(0,0,0,0.10)] w-full h-full"
+        style={{
+          backgroundColor: '#fafafa',
+          backgroundImage:
+            'linear-gradient(to right, rgba(0,0,0,0.045) 1px, transparent 1px), linear-gradient(to bottom, rgba(0,0,0,0.045) 1px, transparent 1px)',
+          backgroundSize: '24px 24px',
+        }}
       >
         <div className="flex flex-col gap-[16px] items-center justify-center p-[24px] w-full h-full">
           {icon}
