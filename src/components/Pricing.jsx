@@ -170,7 +170,7 @@ function SectionHeader({ headingClass }) {
   const [ref, inView] = useInView()
   return (
     <div ref={ref} className="flex flex-col gap-[8px] items-center w-full" style={fadeInUp(inView)}>
-      <p className="font-['Inter',sans-serif] font-semibold text-[#210099] text-[16px] leading-[18px] text-center tracking-[-0.48px] uppercase">
+      <p className="font-['Inter',sans-serif] font-semibold text-[#525252] text-[16px] leading-[18px] text-center tracking-[-0.48px] uppercase">
         Pricing
       </p>
       <h2 className={`font-['Geist',sans-serif] font-medium text-[#171717] text-center tracking-[-0.96px] w-full ${headingClass}`}>
