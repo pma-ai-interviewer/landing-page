@@ -104,14 +104,14 @@ export default function CTABanner() {
         <h2 className={`font-['Geist',sans-serif] font-medium text-[#171717] ${headingClass}`}>
           Say hello to your next big role!
         </h2>
-        <p className="font-['Geist',sans-serif] font-normal text-[#737373] text-[16px] leading-[22px]">
+        <p className="font-['Geist',sans-serif] font-normal text-[#737373] text-[18px] leading-[26px]">
           Join a community of product managers who are mastering their interview success.
         </p>
         <a
           href="https://interviewer.pmaccelerator.io/register"
           target="_blank"
           rel="noreferrer"
-          className="mt-[8px] inline-flex items-center justify-center bg-[#171717] rounded-[8px] h-[42px] px-[24px] font-['Geist',sans-serif] font-medium text-[16px] text-white tracking-[0.07px] whitespace-nowrap hover:bg-[#2a2a2a] transition-colors"
+          className="mt-[32px] inline-flex items-center justify-center bg-[#171717] rounded-[8px] h-[42px] px-[24px] font-['Geist',sans-serif] font-medium text-[16px] text-white tracking-[0.07px] whitespace-nowrap hover:bg-[#2a2a2a] transition-colors"
         >
           Get started today
         </a>
