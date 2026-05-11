@@ -105,7 +105,7 @@ export default function CTABanner() {
       : 'text-[40px] leading-[44px] tracking-[-1.2px]'
 
   return (
-    <section className="relative overflow-hidden w-full bg-white pt-[140px] pb-[96px] px-[24px]">
+    <section className="relative overflow-hidden w-full bg-white pt-[140px] pb-[120px] px-[24px]">
       <FireworkField />
       <div ref={ref} className="relative flex flex-col items-center gap-[16px] text-center max-w-[800px] mx-auto" style={fadeInUp(inView)}>
         <h2 className={`font-['Geist',sans-serif] font-medium text-[#171717] ${headingClass}`}>
