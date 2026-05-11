@@ -15,32 +15,44 @@ function useWindowWidth() {
 
 // ─── Firework burst ────────────────────────────────────────────────────────
 
-function Firework({ size = 80, color = '#fa6400', spokes = 12, dotColor }) {
+function Firework({ size = 80, color = '#fa6400', spokes = 12 }) {
   const cx = size / 2
   const cy = size / 2
-  const innerR = size * 0.16
-  const outerR = size * 0.44
-  const dotR = size * 0.034
-  const tipR = outerR + size * 0.045
-  const dCol = dotColor || color
+  // Each spoke is a trail of small particles at increasing distances and shrinking radii
+  const stops = [
+    { r: 0.20, dot: 0.045 },
+    { r: 0.28, dot: 0.038 },
+    { r: 0.36, dot: 0.030 },
+    { r: 0.43, dot: 0.022 },
+    { r: 0.49, dot: 0.014 },
+  ]
   return (
     <svg width={size} height={size} viewBox={`0 0 ${size} ${size}`} aria-hidden="true">
+      {/* Bright core */}
+      <circle cx={cx} cy={cy} r={size * 0.055} fill={color} />
+      <circle cx={cx} cy={cy} r={size * 0.10} fill={color} fillOpacity="0.18" />
+      {/* Particle trails along each spoke */}
       {Array.from({ length: spokes }).map((_, i) => {
-        const angle = (i / spokes) * Math.PI * 2
-        const x1 = cx + Math.cos(angle) * innerR
-        const y1 = cy + Math.sin(angle) * innerR
-        const x2 = cx + Math.cos(angle) * outerR
-        const y2 = cy + Math.sin(angle) * outerR
-        const xDot = cx + Math.cos(angle) * tipR
-        const yDot = cy + Math.sin(angle) * tipR
+        const angle = (i / spokes) * Math.PI * 2 + (i % 2 ? Math.PI / spokes / 2 : 0)
         return (
           <g key={i}>
-            <line x1={x1} y1={y1} x2={x2} y2={y2} stroke={color} strokeWidth={Math.max(1.4, size * 0.024)} strokeLinecap="round" />
-            <circle cx={xDot} cy={yDot} r={dotR} fill={dCol} />
+            {stops.map((s, j) => {
+              const x = cx + Math.cos(angle) * size * s.r
+              const y = cy + Math.sin(angle) * size * s.r
+              return (
+                <circle
+                  key={j}
+                  cx={x}
+                  cy={y}
+                  r={size * s.dot}
+                  fill={color}
+                  fillOpacity={1 - j * 0.14}
+                />
+              )
+            })}
           </g>
         )
       })}
-      <circle cx={cx} cy={cy} r={size * 0.038} fill={color} />
     </svg>
   )
 }
@@ -99,10 +111,7 @@ export default function CTABanner() {
       : 'text-[40px] leading-[44px] tracking-[-1.2px]'
 
   return (
-    <section
-      className="relative overflow-hidden w-full py-[140px] px-[24px]"
-      style={{ backgroundColor: '#efece6' }}
-    >
+    <section className="relative overflow-hidden w-full bg-gradient-to-br from-[#fde8d4] to-[#fac9a0] py-[140px] px-[24px]">
       <FireworkField />
       <div ref={ref} className="relative flex flex-col items-center gap-[16px] text-center max-w-[800px] mx-auto" style={fadeInUp(inView)}>
         <h2 className={`font-['Geist',sans-serif] font-medium text-[#171717] ${headingClass}`}>
