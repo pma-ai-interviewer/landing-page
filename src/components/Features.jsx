@@ -82,9 +82,8 @@ function BentoCard({ icon, title, description, cardClass, index = 0 }) {
       <div
         className="relative rounded-[16px] overflow-hidden flex flex-col items-center justify-center shadow-[0_2px_6px_rgba(0,0,0,0.04),0_6px_20px_rgba(0,0,0,0.07)] transition-all duration-300 ease-out hover:scale-[1.03] hover:shadow-[0_6px_16px_rgba(0,0,0,0.10),0_16px_40px_rgba(0,0,0,0.10)] w-full h-full"
         style={{
-          backgroundColor: '#fafafa',
           backgroundImage:
-            'linear-gradient(to right, rgba(0,0,0,0.045) 1px, transparent 1px), linear-gradient(to bottom, rgba(0,0,0,0.045) 1px, transparent 1px)',
+            'linear-gradient(to right, rgba(0,0,0,0.025) 1px, transparent 1px), linear-gradient(to bottom, rgba(0,0,0,0.025) 1px, transparent 1px)',
           backgroundSize: '24px 24px',
         }}
       >
