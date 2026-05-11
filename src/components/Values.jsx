@@ -192,7 +192,7 @@ const cards = [
 
 // ─── Card ─────────────────────────────────────────────────────────────────────
 
-function ValueCard({ card, imgHeight, index = 0 }) {
+function ValueCard({ card, imgHeight, index = 0, titleMinLines }) {
   const [ref, inView] = useInView()
   return (
     <div
@@ -216,7 +216,10 @@ function ValueCard({ card, imgHeight, index = 0 }) {
         }
       </div>
       <div className="flex flex-col gap-[8px]">
-        <p className="font-['Geist',sans-serif] font-medium text-[#171717] text-[20px] leading-[1.3] tracking-[-0.1px]">
+        <p
+          className="font-['Geist',sans-serif] font-medium text-[#171717] text-[20px] leading-[1.3] tracking-[-0.1px]"
+          style={titleMinLines ? { minHeight: `${titleMinLines * 1.3}em` } : undefined}
+        >
           {card.title}
         </p>
         <p className="font-['Geist',sans-serif] font-normal text-[#737373] text-[16px] leading-[1.5]">{card.body}</p>
@@ -277,7 +280,7 @@ function ValuesDesktop() {
         </div>
         <div className="flex gap-[24px] items-start w-full">
           {cards.map((card, i) => (
-            <ValueCard key={i} card={card} imgHeight="h-[260px]" index={i} />
+            <ValueCard key={i} card={card} imgHeight="h-[260px]" index={i} titleMinLines={2} />
           ))}
         </div>
       </div>
