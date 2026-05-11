@@ -184,7 +184,7 @@ function SectionHeader({ headingClass }) {
 
 function PricingMobile() {
   return (
-    <section className="w-full px-[16px] pt-[80px] pb-[48px]">
+    <section className="w-full px-[16px] py-[48px]">
       <div className="flex flex-col gap-[32px] items-center w-full">
         <SectionHeader headingClass="text-[32px] leading-[36px]" />
         <ul className="flex flex-col gap-[16px] w-full">
@@ -199,7 +199,7 @@ function PricingMobile() {
 
 function PricingTablet() {
   return (
-    <section className="w-full px-[40px] pt-[96px] pb-[56px]">
+    <section className="w-full px-[40px] py-[56px]">
       <div className="flex flex-col gap-[48px] items-center w-full">
         <SectionHeader headingClass="text-[36px] leading-[40px] tracking-[-1.08px]" />
         <ul className="flex flex-wrap gap-[16px] justify-center items-stretch w-full">
@@ -214,7 +214,7 @@ function PricingTablet() {
 
 function PricingDesktop() {
   return (
-    <section className="w-full pt-[128px] pb-[80px]">
+    <section className="w-full py-[80px]">
       <div className="flex flex-col gap-[56px] items-center max-w-[1200px] mx-auto px-[40px]">
         <SectionHeader headingClass="text-[48px] leading-[52px] tracking-[-1.44px]" />
         <ul className="flex gap-[16px] items-stretch w-full">
