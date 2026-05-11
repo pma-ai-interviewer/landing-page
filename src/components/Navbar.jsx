@@ -22,7 +22,7 @@ export default function Navbar() {
           </a>
           <a
             href={REGISTER_URL}
-            className="inline-flex items-center justify-center bg-[#404040] rounded-[8px] h-[38px] px-[16px] font-['Geist',sans-serif] font-medium text-[15px] text-white tracking-[0.07px] whitespace-nowrap hover:bg-[#262626] transition-colors"
+            className="inline-flex items-center justify-center bg-[#171717] rounded-[8px] h-[38px] px-[16px] font-['Geist',sans-serif] font-medium text-[15px] text-white tracking-[0.07px] whitespace-nowrap hover:bg-[#2a2a2a] transition-colors"
           >
             Sign up
           </a>
