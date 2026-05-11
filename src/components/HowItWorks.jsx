@@ -37,6 +37,28 @@ const svgPaths = {
   p2a739700: 'M10.5 8a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zm0-1.5a4 4 0 1 0 2.87 6.827l1.9 1.9a.75.75 0 0 0 1.06-1.06l-1.9-1.9A4 4 0 0 0 10.5 6.5z',
 }
 
+// ─── Journey connectors ────────────────────────────────────────────────────
+
+function ConnectorV({ height = 36 }) {
+  return (
+    <div
+      aria-hidden="true"
+      className="self-center w-0 border-l-[3px] border-dotted border-[#fa6400]/45 shrink-0"
+      style={{ height }}
+    />
+  )
+}
+
+function ConnectorH({ width = 40 }) {
+  return (
+    <div
+      aria-hidden="true"
+      className="self-center h-0 border-t-[3px] border-dotted border-[#fa6400]/45 shrink-0"
+      style={{ width }}
+    />
+  )
+}
+
 // ─── Mobile ─────────────────────────────────────────────────────────────────
 
 function TitleMobile() {
@@ -105,6 +127,7 @@ function HowItWorksContainerMobile() {
                 </div>
               }
             />
+            <ConnectorV height={28} />
             <StepCardMobile
               iconSlot={
                 <svg className="shrink-0 size-[24px]" fill="none" viewBox="0 0 24 24">
@@ -124,6 +147,7 @@ function HowItWorksContainerMobile() {
               }
             />
           </div>
+          <ConnectorV height={28} />
           {/* Row 2 */}
           <div ref={row2Ref} className="content-stretch flex flex-col gap-[24px] items-start relative shrink-0 w-full" style={fadeInUp(row2InView, 0.15)}>
             <StepCardMobile
@@ -140,6 +164,7 @@ function HowItWorksContainerMobile() {
                 </div>
               }
             />
+            <ConnectorV height={28} />
             <StepCardMobile
               iconSlot={
                 <svg className="shrink-0 size-[24px]" fill="none" viewBox="0 0 24 24">
@@ -221,6 +246,7 @@ function HowItWorksContainerTablet() {
                 </div>
               }
             />
+            <ConnectorV height={36} />
             <StepCardTablet
               iconSlot={<svg className="shrink-0 size-[24px]" fill="none" viewBox="0 0 24 24"><path d={svgPaths.p39c7af00} stroke="white" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" /></svg>}
               title="Choose Your Questions"
@@ -236,6 +262,7 @@ function HowItWorksContainerTablet() {
               }
             />
           </div>
+          <ConnectorV height={36} />
           <div ref={row2Ref} className="content-stretch flex flex-col gap-[40px] items-center justify-center relative shrink-0 w-full" style={fadeInUp(row2InView, 0.15)}>
             <StepCardTablet
               iconSlot={<svg className="shrink-0 size-[24px]" fill="none" viewBox="0 0 24 24"><path d={svgPaths.p13434f80} stroke="white" strokeLinecap="round" strokeWidth="2" /></svg>}
@@ -247,6 +274,7 @@ function HowItWorksContainerTablet() {
                 </div>
               }
             />
+            <ConnectorV height={36} />
             <StepCardTablet
               iconSlot={<svg className="shrink-0 size-[24px]" fill="none" viewBox="0 0 24 24"><clipPath id="sparkles-clip-t"><rect fill="white" height="24" width="24" /></clipPath><path d={svgPaths.p32df8c00} stroke="white" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" clipPath="url(#sparkles-clip-t)" /></svg>}
               title="Get Personalized Feedback"
@@ -323,6 +351,7 @@ function HowItWorksContainerDesktop() {
                 </div>
               }
             />
+            <ConnectorH width={48} />
             <StepCardDesktop
               iconSlot={<svg className="shrink-0 size-[24px]" fill="none" viewBox="0 0 24 24"><path d={svgPaths.p39c7af00} stroke="white" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" /></svg>}
               title="Choose Your Questions"
@@ -338,6 +367,7 @@ function HowItWorksContainerDesktop() {
               }
             />
           </div>
+          <ConnectorV height={36} />
           {/* Row 2 */}
           <div ref={row2Ref} className="content-stretch flex gap-[28px] items-start justify-center relative shrink-0 w-full" style={fadeInUp(row2InView, 0.15)}>
             <StepCardDesktop
@@ -350,6 +380,7 @@ function HowItWorksContainerDesktop() {
                 </div>
               }
             />
+            <ConnectorH width={48} />
             <StepCardDesktop
               iconSlot={<svg className="shrink-0 size-[24px]" fill="none" viewBox="0 0 24 24"><clipPath id="sparkles-clip-d"><rect fill="white" height="24" width="24" /></clipPath><path d={svgPaths.p32df8c00} stroke="white" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" clipPath="url(#sparkles-clip-d)" /></svg>}
               title="Get Personalized Feedback"
