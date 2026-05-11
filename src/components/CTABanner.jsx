@@ -49,16 +49,16 @@ function PlusSpark({ size = 12, color = '#fa6400', opacity = 1, style }) {
 }
 
 const sparkles = [
-  { type: 's', size: 28, top: '14%',  left: '6%',  opacity: 0.55, color: '#fa6400', spin: 8 },
+  { type: 's', size: 28, top: '14%',  left: '6%',  opacity: 0.55, color: '#ffffff', spin: 8 },
   { type: 's', size: 18, top: '70%',  left: '10%', opacity: 0.45, color: '#ffffff', spin: 11 },
-  { type: 'p', size: 14, top: '32%',  left: '14%', opacity: 0.65, color: '#fa6400' },
+  { type: 'p', size: 14, top: '32%',  left: '14%', opacity: 0.65, color: '#ffffff' },
   { type: 's', size: 22, top: '20%',  left: '88%', opacity: 0.55, color: '#ffffff', spin: 10 },
-  { type: 'p', size: 12, top: '60%',  left: '92%', opacity: 0.6,  color: '#fa6400' },
-  { type: 's', size: 16, top: '78%',  left: '82%', opacity: 0.5,  color: '#fa6400', spin: 9 },
+  { type: 'p', size: 12, top: '60%',  left: '92%', opacity: 0.6,  color: '#ffffff' },
+  { type: 's', size: 16, top: '78%',  left: '82%', opacity: 0.5,  color: '#ffe1c6', spin: 9 },
   { type: 's', size: 14, top: '8%',   left: '46%', opacity: 0.4,  color: '#ffffff', spin: 12 },
-  { type: 'p', size: 10, top: '85%',  left: '50%', opacity: 0.55, color: '#fa6400' },
+  { type: 'p', size: 10, top: '85%',  left: '50%', opacity: 0.55, color: '#ffffff' },
   { type: 's', size: 12, top: '42%',  left: '3%',  opacity: 0.5,  color: '#ffffff', spin: 14 },
-  { type: 's', size: 20, top: '50%',  left: '96%', opacity: 0.4,  color: '#fa6400', spin: 13 },
+  { type: 's', size: 20, top: '50%',  left: '96%', opacity: 0.4,  color: '#ffe1c6', spin: 13 },
 ]
 
 function SparkleField() {
@@ -98,13 +98,19 @@ export default function CTABanner() {
       : 'text-[40px] leading-[44px] tracking-[-1.2px]'
 
   return (
-    <section className="relative overflow-hidden w-full bg-gradient-to-br from-[#fde8d4] to-[#fac9a0] py-[140px] px-[24px]">
+    <section
+      className="relative overflow-hidden w-full py-[140px] px-[24px]"
+      style={{
+        backgroundImage:
+          'linear-gradient(110deg, #fa6400 0%, #fa6400 35%, #ffe1c6 50%, #fa6400 65%, #fa6400 100%)',
+      }}
+    >
       <SparkleField />
       <div ref={ref} className="relative flex flex-col items-center gap-[16px] text-center max-w-[800px] mx-auto" style={fadeInUp(inView)}>
-        <h2 className={`font-['Geist',sans-serif] font-medium text-[#171717] ${headingClass}`}>
+        <h2 className={`font-['Geist',sans-serif] font-medium text-white ${headingClass}`}>
           Say hello to your next big role!
         </h2>
-        <p className="font-['Geist',sans-serif] font-normal text-[#737373] text-[18px] leading-[26px]">
+        <p className="font-['Geist',sans-serif] font-normal text-white/85 text-[18px] leading-[26px]">
           Join a community of product managers who are mastering their interview success.
         </p>
         <a
