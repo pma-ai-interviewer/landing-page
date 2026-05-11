@@ -34,8 +34,8 @@ function IconAnywhere() {
 function IconFeedback() {
   return (
     <svg width="112" height="112" viewBox="0 0 112 112" fill="none" xmlns="http://www.w3.org/2000/svg">
-      {/* Circular background */}
-      <circle cx="56" cy="56" r="56" fill="#fff0e6" />
+      {/* Circular background — matches IconAnywhere */}
+      <rect width="112" height="112" rx="56" fill="#fa6400" fillOpacity="0.12" />
       {/* Large speech bubble */}
       <rect x="18" y="24" width="62" height="46" rx="10" fill="#fa6400" />
       {/* Tail bottom-left */}
@@ -59,6 +59,8 @@ function IconFeedback() {
 function IconProgress() {
   return (
     <svg width="143" height="112" viewBox="0 0 143 112" fill="none" xmlns="http://www.w3.org/2000/svg">
+      {/* Circular background — matches IconAnywhere */}
+      <rect x="15.5" width="112" height="112" rx="56" fill="#fa6400" fillOpacity="0.12" />
       <rect x="10" y="60" width="20" height="42" rx="4" fill="#fa6400" fillOpacity="0.4" />
       <rect x="38" y="44" width="20" height="58" rx="4" fill="#fa6400" fillOpacity="0.6" />
       <rect x="66" y="28" width="20" height="74" rx="4" fill="#fa6400" fillOpacity="0.8" />
