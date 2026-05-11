@@ -57,8 +57,8 @@ function IconMobile() {
   return (
     <div className="relative shrink-0 size-[24px]" data-name="Icon">
       <svg className="absolute block inset-0 size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 24 24">
-        <path d={svgPaths.p1f023100} stroke="#171717" strokeLinecap="round" strokeWidth="2" />
-        <path d="M9 11L12 14L22 4" stroke="#171717" strokeLinecap="round" strokeWidth="2" />
+        <path d={svgPaths.p1f023100} stroke="white" strokeLinecap="round" strokeWidth="2" />
+        <path d="M9 11L12 14L22 4" stroke="white" strokeLinecap="round" strokeWidth="2" />
       </svg>
     </div>
   )
@@ -70,7 +70,7 @@ function StepCardMobile({ iconSlot, title, description, imageSlot }) {
     <div className="bg-white relative rounded-[16px] shrink-0 w-full shadow-[0_2px_6px_rgba(0,0,0,0.04),0_6px_20px_rgba(0,0,0,0.07)] transition-all duration-300 ease-out hover:-translate-y-[4px] hover:shadow-[0_8px_28px_rgba(0,0,0,0.11)]">
       <div aria-hidden="true" className="absolute border border-[#e5e5e5] border-solid inset-0 pointer-events-none rounded-[16px]" />
       <div className="content-stretch flex flex-col gap-[24px] items-start p-[16px] relative w-full">
-        <div className="bg-[#f5f5f5] content-stretch flex items-center p-[8px] relative rounded-[6px] shrink-0">
+        <div className="bg-[#fa6400] content-stretch flex items-center p-[8px] relative rounded-[6px] shrink-0">
           {iconSlot}
         </div>
         <div className="content-stretch flex flex-col gap-[12px] items-start relative shrink-0 w-full">
@@ -108,7 +108,7 @@ function HowItWorksContainerMobile() {
             <StepCardMobile
               iconSlot={
                 <svg className="shrink-0 size-[24px]" fill="none" viewBox="0 0 24 24">
-                  <path d={svgPaths.p39c7af00} stroke="#171717" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" />
+                  <path d={svgPaths.p39c7af00} stroke="white" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" />
                 </svg>
               }
               title="Choose Your Questions"
@@ -129,7 +129,7 @@ function HowItWorksContainerMobile() {
             <StepCardMobile
               iconSlot={
                 <svg className="shrink-0 size-[24px]" fill="none" viewBox="0 0 24 24">
-                  <path d={svgPaths.p13434f80} stroke="#171717" strokeLinecap="round" strokeWidth="2" />
+                  <path d={svgPaths.p13434f80} stroke="white" strokeLinecap="round" strokeWidth="2" />
                 </svg>
               }
               title="Mock interview with your AI coach"
@@ -144,7 +144,7 @@ function HowItWorksContainerMobile() {
               iconSlot={
                 <svg className="shrink-0 size-[24px]" fill="none" viewBox="0 0 24 24">
                   <clipPath id="sparkles-clip-m"><rect fill="white" height="24" width="24" /></clipPath>
-                  <path d={svgPaths.p32df8c00} stroke="#171717" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" clipPath="url(#sparkles-clip-m)" />
+                  <path d={svgPaths.p32df8c00} stroke="white" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" clipPath="url(#sparkles-clip-m)" />
                 </svg>
               }
               title="Get Personalized Feedback"
@@ -186,9 +186,9 @@ function TitleTablet() {
 
 function StepCardTablet({ iconSlot, title, description, imageSlot, imageHeight = 350 }) {
   return (
-    <div className="bg-white content-stretch flex flex-col gap-[24px] items-start p-[24px] relative rounded-[16px] shrink-0 w-[720px] shadow-[0_2px_6px_rgba(0,0,0,0.04),0_6px_20px_rgba(0,0,0,0.07)] transition-all duration-300 ease-out hover:-translate-y-[4px] hover:shadow-[0_8px_28px_rgba(0,0,0,0.11)]" style={{ height: 570 }}>
+    <div className="bg-white content-stretch flex flex-col gap-[24px] items-start p-[24px] relative rounded-[16px] shrink-0 w-[860px] shadow-[0_2px_6px_rgba(0,0,0,0.04),0_6px_20px_rgba(0,0,0,0.07)] transition-all duration-300 ease-out hover:-translate-y-[4px] hover:shadow-[0_8px_28px_rgba(0,0,0,0.11)]" style={{ height: 570 }}>
       <div aria-hidden="true" className="absolute border border-[#e5e5e5] border-solid inset-0 pointer-events-none rounded-[16px]" />
-      <div className="bg-[#f5f5f5] content-stretch flex items-center p-[8px] relative rounded-[6px] shrink-0">
+      <div className="bg-[#fa6400] content-stretch flex items-center p-[8px] relative rounded-[6px] shrink-0">
         {iconSlot}
       </div>
       <div className="content-stretch flex flex-col gap-[12px] items-start relative shrink-0 w-full" style={{ height: 84 }}>
@@ -212,7 +212,7 @@ function HowItWorksContainerTablet() {
         <div className="content-stretch flex flex-col gap-[40px] items-center justify-center relative shrink-0 w-full">
           <div ref={row1Ref} className="content-stretch flex flex-col gap-[40px] items-center justify-center relative shrink-0 w-full" style={fadeInUp(row1InView, 0)}>
             <StepCardTablet
-              iconSlot={<svg className="shrink-0 size-[24px]" fill="none" viewBox="0 0 24 24"><path d={svgPaths.p1f023100} stroke="#171717" strokeLinecap="round" strokeWidth="2" /><path d="M9 11L12 14L22 4" stroke="#171717" strokeLinecap="round" strokeWidth="2" /></svg>}
+              iconSlot={<svg className="shrink-0 size-[24px]" fill="none" viewBox="0 0 24 24"><path d={svgPaths.p1f023100} stroke="white" strokeLinecap="round" strokeWidth="2" /><path d="M9 11L12 14L22 4" stroke="white" strokeLinecap="round" strokeWidth="2" /></svg>}
               title="Get Started"
               description="Create an account and enjoy the first 7 days for free."
               imageSlot={
@@ -222,7 +222,7 @@ function HowItWorksContainerTablet() {
               }
             />
             <StepCardTablet
-              iconSlot={<svg className="shrink-0 size-[24px]" fill="none" viewBox="0 0 24 24"><path d={svgPaths.p39c7af00} stroke="#171717" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" /></svg>}
+              iconSlot={<svg className="shrink-0 size-[24px]" fill="none" viewBox="0 0 24 24"><path d={svgPaths.p39c7af00} stroke="white" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" /></svg>}
               title="Choose Your Questions"
               description="Focus on the areas you want to improve most by picking an interview question you want to practice, or letting your AI Interviewer choose a question for you."
               imageSlot={
@@ -238,7 +238,7 @@ function HowItWorksContainerTablet() {
           </div>
           <div ref={row2Ref} className="content-stretch flex flex-col gap-[40px] items-center justify-center relative shrink-0 w-full" style={fadeInUp(row2InView, 0.15)}>
             <StepCardTablet
-              iconSlot={<svg className="shrink-0 size-[24px]" fill="none" viewBox="0 0 24 24"><path d={svgPaths.p13434f80} stroke="#171717" strokeLinecap="round" strokeWidth="2" /></svg>}
+              iconSlot={<svg className="shrink-0 size-[24px]" fill="none" viewBox="0 0 24 24"><path d={svgPaths.p13434f80} stroke="white" strokeLinecap="round" strokeWidth="2" /></svg>}
               title="Mock interview with your AI coach"
               description="Engage with the AI Interviewer to sharpen your interview skills - simulates real interview conditions in a low-pressure, high-learning environment."
               imageSlot={
@@ -248,7 +248,7 @@ function HowItWorksContainerTablet() {
               }
             />
             <StepCardTablet
-              iconSlot={<svg className="shrink-0 size-[24px]" fill="none" viewBox="0 0 24 24"><clipPath id="sparkles-clip-t"><rect fill="white" height="24" width="24" /></clipPath><path d={svgPaths.p32df8c00} stroke="#171717" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" clipPath="url(#sparkles-clip-t)" /></svg>}
+              iconSlot={<svg className="shrink-0 size-[24px]" fill="none" viewBox="0 0 24 24"><clipPath id="sparkles-clip-t"><rect fill="white" height="24" width="24" /></clipPath><path d={svgPaths.p32df8c00} stroke="white" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" clipPath="url(#sparkles-clip-t)" /></svg>}
               title="Get Personalized Feedback"
               description="Understand what you did well, what to improve, and exactly how to level up before your next interview."
               imageSlot={
@@ -287,9 +287,9 @@ function TitleDesktop() {
 
 function StepCardDesktop({ iconSlot, title, description, imageSlot }) {
   return (
-    <div className="bg-white content-stretch flex flex-col gap-[16px] h-[500px] items-start overflow-hidden p-[24px] relative rounded-[16px] shrink-0 w-[480px] shadow-[0_2px_6px_rgba(0,0,0,0.04),0_6px_20px_rgba(0,0,0,0.07)] transition-all duration-300 ease-out hover:-translate-y-[5px] hover:shadow-[0_10px_32px_rgba(0,0,0,0.11)]">
+    <div className="bg-white content-stretch flex flex-col gap-[16px] h-[500px] items-start overflow-hidden p-[24px] relative rounded-[16px] shrink-0 w-[580px] shadow-[0_2px_6px_rgba(0,0,0,0.04),0_6px_20px_rgba(0,0,0,0.07)] transition-all duration-300 ease-out hover:-translate-y-[5px] hover:shadow-[0_10px_32px_rgba(0,0,0,0.11)]">
       <div aria-hidden="true" className="absolute border border-[#e5e5e5] border-solid inset-0 pointer-events-none rounded-[16px]" />
-      <div className="bg-[#f5f5f5] content-stretch flex items-center p-[8px] relative rounded-[6px] shrink-0">
+      <div className="bg-[#fa6400] content-stretch flex items-center p-[8px] relative rounded-[6px] shrink-0">
         {iconSlot}
       </div>
       <div className="content-stretch flex flex-col gap-[8px] h-[108px] items-start relative shrink-0 w-full">
@@ -314,7 +314,7 @@ function HowItWorksContainerDesktop() {
           {/* Row 1 */}
           <div ref={row1Ref} className="content-stretch flex gap-[28px] items-start justify-center relative shrink-0 w-full" style={fadeInUp(row1InView, 0)}>
             <StepCardDesktop
-              iconSlot={<svg className="shrink-0 size-[24px]" fill="none" viewBox="0 0 24 24"><path d={svgPaths.p1f023100} stroke="#171717" strokeLinecap="round" strokeWidth="2" /><path d="M9 11L12 14L22 4" stroke="#171717" strokeLinecap="round" strokeWidth="2" /></svg>}
+              iconSlot={<svg className="shrink-0 size-[24px]" fill="none" viewBox="0 0 24 24"><path d={svgPaths.p1f023100} stroke="white" strokeLinecap="round" strokeWidth="2" /><path d="M9 11L12 14L22 4" stroke="white" strokeLinecap="round" strokeWidth="2" /></svg>}
               title="Get Started"
               description="Create an account and enjoy the first 7 days for free."
               imageSlot={
@@ -324,7 +324,7 @@ function HowItWorksContainerDesktop() {
               }
             />
             <StepCardDesktop
-              iconSlot={<svg className="shrink-0 size-[24px]" fill="none" viewBox="0 0 24 24"><path d={svgPaths.p39c7af00} stroke="#171717" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" /></svg>}
+              iconSlot={<svg className="shrink-0 size-[24px]" fill="none" viewBox="0 0 24 24"><path d={svgPaths.p39c7af00} stroke="white" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" /></svg>}
               title="Choose Your Questions"
               description="Focus on the areas you want to improve most by picking an interview question you want to practice, or letting your AI Interviewer choose a question for you."
               imageSlot={
@@ -341,7 +341,7 @@ function HowItWorksContainerDesktop() {
           {/* Row 2 */}
           <div ref={row2Ref} className="content-stretch flex gap-[28px] items-start justify-center relative shrink-0 w-full" style={fadeInUp(row2InView, 0.15)}>
             <StepCardDesktop
-              iconSlot={<svg className="shrink-0 size-[24px]" fill="none" viewBox="0 0 24 24"><path d={svgPaths.p13434f80} stroke="#171717" strokeLinecap="round" strokeWidth="2" /></svg>}
+              iconSlot={<svg className="shrink-0 size-[24px]" fill="none" viewBox="0 0 24 24"><path d={svgPaths.p13434f80} stroke="white" strokeLinecap="round" strokeWidth="2" /></svg>}
               title="Mock interview with your AI coach"
               description="Engage with the AI Interviewer to sharpen your interview skills - simulates real interview conditions in a low-pressure, high-learning environment."
               imageSlot={
@@ -351,7 +351,7 @@ function HowItWorksContainerDesktop() {
               }
             />
             <StepCardDesktop
-              iconSlot={<svg className="shrink-0 size-[24px]" fill="none" viewBox="0 0 24 24"><clipPath id="sparkles-clip-d"><rect fill="white" height="24" width="24" /></clipPath><path d={svgPaths.p32df8c00} stroke="#171717" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" clipPath="url(#sparkles-clip-d)" /></svg>}
+              iconSlot={<svg className="shrink-0 size-[24px]" fill="none" viewBox="0 0 24 24"><clipPath id="sparkles-clip-d"><rect fill="white" height="24" width="24" /></clipPath><path d={svgPaths.p32df8c00} stroke="white" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" clipPath="url(#sparkles-clip-d)" /></svg>}
               title="Get Personalized Feedback"
               description="Understand what you did well, what to improve, and exactly how to level up before your next interview."
               imageSlot={
