@@ -39,23 +39,53 @@ const svgPaths = {
 
 // ─── Journey connectors ────────────────────────────────────────────────────
 
+const DOT_STROKE = '#fa6400'
+const DOT_OPACITY = 0.55
+const DOT_DASH = '2 7'
+
 function ConnectorV({ height = 36 }) {
+  // Vertical sine wave: oscillates left/right around centerline x=12
+  const w = 26
+  const amp = 6
+  const path = `M ${w / 2} 0 Q ${w / 2 - amp} ${height * 0.25} ${w / 2} ${height * 0.5} T ${w / 2} ${height}`
   return (
-    <div
-      aria-hidden="true"
-      className="self-center w-0 border-l-[3px] border-dotted border-[#fa6400]/45 shrink-0"
-      style={{ height }}
-    />
+    <div aria-hidden="true" className="self-center shrink-0" style={{ width: w, height }}>
+      <svg width={w} height={height} viewBox={`0 0 ${w} ${height}`} fill="none">
+        <path d={path} stroke={DOT_STROKE} strokeOpacity={DOT_OPACITY} strokeWidth="3" strokeDasharray={DOT_DASH} strokeLinecap="round" />
+      </svg>
+    </div>
   )
 }
 
-function ConnectorH({ width = 40 }) {
+function ConnectorH({ width = 48 }) {
+  // Horizontal sine wave around centerline y=12
+  const h = 26
+  const amp = 6
+  const path = `M 0 ${h / 2} Q ${width * 0.25} ${h / 2 - amp} ${width * 0.5} ${h / 2} T ${width} ${h / 2}`
   return (
-    <div
-      aria-hidden="true"
-      className="self-center h-0 border-t-[3px] border-dotted border-[#fa6400]/45 shrink-0"
-      style={{ width }}
-    />
+    <div aria-hidden="true" className="self-center shrink-0" style={{ width, height: h }}>
+      <svg width={width} height={h} viewBox={`0 0 ${width} ${h}`} fill="none">
+        <path d={path} stroke={DOT_STROKE} strokeOpacity={DOT_OPACITY} strokeWidth="3" strokeDasharray={DOT_DASH} strokeLinecap="round" />
+      </svg>
+    </div>
+  )
+}
+
+// S-curve sweeping from upper-right to lower-left across a row gap (desktop only)
+function ConnectorDiagonal({ height = 100 }) {
+  return (
+    <div aria-hidden="true" className="w-full self-stretch" style={{ height }}>
+      <svg width="100%" height={height} viewBox={`0 0 1000 ${height}`} preserveAspectRatio="none" fill="none">
+        <path
+          d={`M 850 0 C 850 ${height * 0.55}, 150 ${height * 0.45}, 150 ${height}`}
+          stroke={DOT_STROKE}
+          strokeOpacity={DOT_OPACITY}
+          strokeWidth="3"
+          strokeDasharray={DOT_DASH}
+          strokeLinecap="round"
+        />
+      </svg>
+    </div>
   )
 }
 
@@ -367,7 +397,7 @@ function HowItWorksContainerDesktop() {
               }
             />
           </div>
-          <ConnectorV height={36} />
+          <ConnectorDiagonal height={100} />
           {/* Row 2 */}
           <div ref={row2Ref} className="content-stretch flex gap-[28px] items-start justify-center relative shrink-0 w-full" style={fadeInUp(row2InView, 0.15)}>
             <StepCardDesktop
