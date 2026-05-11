@@ -23,7 +23,7 @@ export default function CTABanner() {
       : 'text-[40px] leading-[44px] tracking-[-1.2px]'
 
   return (
-    <section className="w-full bg-gradient-to-br from-[#fff8f5] to-[#fde8d4] py-[80px] px-[24px]">
+    <section className="w-full bg-gradient-to-br from-[#fde8d4] to-[#fac9a0] py-[80px] px-[24px]">
       <div ref={ref} className="flex flex-col items-center gap-[16px] text-center max-w-[800px] mx-auto" style={fadeInUp(inView)}>
         <h2 className={`font-['Geist',sans-serif] font-medium text-[#171717] ${headingClass}`}>
           Say hello to your next big role!

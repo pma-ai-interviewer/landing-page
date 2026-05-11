@@ -110,7 +110,7 @@ export default function TestimonialsContainer() {
 
   if (width < 800) {
     return (
-      <section className="flex flex-col gap-[32px] items-center py-[48px] w-full overflow-hidden">
+      <section className="flex flex-col gap-[32px] items-center py-[48px] w-full overflow-hidden bg-gradient-to-br from-[#fde8d4] to-[#fac9a0]">
         <div className="px-[16px] w-full">
           <Header labelSize="text-[16px]" headingSize="text-[32px]" headingLeading="leading-[36px]" headingTracking="tracking-[-0.96px]" />
         </div>
@@ -121,7 +121,7 @@ export default function TestimonialsContainer() {
 
   if (width < 1280) {
     return (
-      <section className="flex flex-col gap-[48px] items-center py-[56px] w-full overflow-hidden">
+      <section className="flex flex-col gap-[48px] items-center py-[56px] w-full overflow-hidden bg-gradient-to-br from-[#fde8d4] to-[#fac9a0]">
         <div className="px-[40px] w-full">
           <Header labelSize="text-[16px]" headingSize="text-[36px]" headingLeading="leading-[40px]" headingTracking="tracking-[-1.08px]" />
         </div>
@@ -131,7 +131,7 @@ export default function TestimonialsContainer() {
   }
 
   return (
-    <section className="flex flex-col gap-[48px] items-center py-[80px] w-full overflow-hidden">
+    <section className="flex flex-col gap-[48px] items-center py-[80px] w-full overflow-hidden bg-gradient-to-br from-[#fde8d4] to-[#fac9a0]">
       <div className="px-[40px] w-full max-w-[900px] mx-auto">
         <Header labelSize="text-[16px]" headingSize="text-[48px]" headingLeading="leading-[52px]" headingTracking="tracking-[-1.44px]" />
       </div>
