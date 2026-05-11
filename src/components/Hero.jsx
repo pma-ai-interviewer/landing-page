@@ -69,75 +69,14 @@ function HeaderMobile({ mounted }) {
   );
 }
 
-function BrowserMockup({ children, barHeight = 36, dotSize = 10, urlWidth = '40%', outerPad = 32, outerRadius = 24 }) {
-  const innerRadius = outerRadius - 6
-  const contentPad = Math.round(outerPad * 0.55)
-  return (
-    /* Outer gradient frame — this is also the browser window background */
-    <div style={{
-      background: 'linear-gradient(135deg, #fde8d4 0%, #fac9a0 100%)',
-      borderRadius: outerRadius,
-      padding: outerPad,
-    }}>
-      <div style={{ borderRadius: innerRadius, overflow: 'hidden', boxShadow: '0 4px 32px rgba(0,0,0,0.10)', border: '1.5px solid rgba(255,255,255,0.5)' }}>
-        {/* Toolbar — glass blurs the gradient behind it */}
-        <div style={{
-          background: 'rgba(255,255,255,0.38)',
-          backdropFilter: 'blur(20px)',
-          WebkitBackdropFilter: 'blur(20px)',
-          borderBottom: '1px solid rgba(255,255,255,0.35)',
-          height: barHeight,
-          display: 'flex',
-          alignItems: 'center',
-          padding: `0 ${barHeight * 0.44}px`,
-          gap: barHeight * 0.33,
-        }}>
-          <div style={{ display: 'flex', gap: '6px', alignItems: 'center', flexShrink: 0 }}>
-            <div style={{ width: dotSize, height: dotSize, borderRadius: '50%', background: '#ff5f57' }} />
-            <div style={{ width: dotSize, height: dotSize, borderRadius: '50%', background: '#febc2e' }} />
-            <div style={{ width: dotSize, height: dotSize, borderRadius: '50%', background: '#28c840' }} />
-          </div>
-          <div style={{ flex: 1, display: 'flex', justifyContent: 'center' }}>
-            <div style={{
-              background: 'rgba(255,255,255,0.45)',
-              border: '1px solid rgba(255,255,255,0.5)',
-              borderRadius: barHeight * 0.22,
-              height: barHeight * 0.58,
-              width: urlWidth,
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              gap: '5px',
-            }}>
-              <svg width="9" height="10" viewBox="0 0 9 10" fill="none">
-                <rect x="1.5" y="4.5" width="6" height="5" rx="1" stroke="#999" strokeWidth="1"/>
-                <path d="M3 4.5V3a1.5 1.5 0 0 1 3 0v1.5" stroke="#999" strokeWidth="1" strokeLinecap="round"/>
-              </svg>
-            </div>
-          </div>
-          <div style={{ width: dotSize * 3 + 12, flexShrink: 0 }} />
-        </div>
-        {/* Content area — gradient shows through, video sits inset */}
-        <div style={{ padding: `${contentPad}px`, background: 'rgba(255,255,255,0.45)', backdropFilter: 'blur(20px)', WebkitBackdropFilter: 'blur(20px)' }}>
-          <div style={{ borderRadius: innerRadius - 8, overflow: 'hidden', background: '#ffffff', padding: '8px' }}>
-            <div style={{ borderRadius: innerRadius - 14, overflow: 'hidden' }}>
-              {children}
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  )
-}
-
 function Group11Mobile() {
   return (
     <div className="w-full px-[12px] py-[12px]">
-      <BrowserMockup barHeight={30} dotSize={8} urlWidth="52%" outerPad={14} outerRadius={18}>
+      <div style={{ borderRadius: 14, overflow: 'hidden', boxShadow: '0 4px 24px rgba(0,0,0,0.08)' }}>
         <video autoPlay loop muted playsInline style={{ width: '100%', display: 'block' }}>
           <source src="https://res.cloudinary.com/delf0movh/video/upload/demo_vqg72u.mp4" type="video/mp4" />
         </video>
-      </BrowserMockup>
+      </div>
     </div>
   );
 }
@@ -207,14 +146,12 @@ function HeaderTablet({ mounted }) {
 
 function Group11Tablet() {
   return (
-    <div className="w-full px-[16px] py-[16px]" style={{ maxWidth: '640px', margin: '0 auto' }}>
-      <BrowserMockup barHeight={34} dotSize={9} urlWidth="44%" outerPad={24} outerRadius={22}>
-        <div style={{ aspectRatio: '16/9', overflow: 'hidden' }}>
-          <video autoPlay loop muted playsInline style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}>
-            <source src="https://res.cloudinary.com/delf0movh/video/upload/demo_vqg72u.mp4" type="video/mp4" />
-          </video>
-        </div>
-      </BrowserMockup>
+    <div className="w-full px-[16px] py-[16px]" style={{ maxWidth: '760px', margin: '0 auto' }}>
+      <div style={{ aspectRatio: '16/9', borderRadius: 18, overflow: 'hidden', boxShadow: '0 6px 32px rgba(0,0,0,0.10)' }}>
+        <video autoPlay loop muted playsInline style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}>
+          <source src="https://res.cloudinary.com/delf0movh/video/upload/demo_vqg72u.mp4" type="video/mp4" />
+        </video>
+      </div>
     </div>
   );
 }
@@ -284,14 +221,12 @@ function HeaderDesktop({ mounted }) {
 
 function Group11Desktop() {
   return (
-    <div className="w-full px-[24px] py-[24px]" style={{ maxWidth: '1000px', margin: '0 auto' }}>
-      <BrowserMockup barHeight={40} dotSize={11} urlWidth="40%" outerPad={32} outerRadius={26}>
-        <div style={{ aspectRatio: '16/9', overflow: 'hidden' }}>
-          <video autoPlay loop muted playsInline style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}>
-            <source src="https://res.cloudinary.com/delf0movh/video/upload/demo_vqg72u.mp4" type="video/mp4" />
-          </video>
-        </div>
-      </BrowserMockup>
+    <div className="w-full px-[24px] py-[24px]" style={{ maxWidth: '1160px', margin: '0 auto' }}>
+      <div style={{ aspectRatio: '16/9', borderRadius: 22, overflow: 'hidden', boxShadow: '0 10px 48px rgba(0,0,0,0.12)' }}>
+        <video autoPlay loop muted playsInline style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}>
+          <source src="https://res.cloudinary.com/delf0movh/video/upload/demo_vqg72u.mp4" type="video/mp4" />
+        </video>
+      </div>
     </div>
   );
 }
