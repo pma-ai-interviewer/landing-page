@@ -138,7 +138,7 @@ function FeaturesMobile() {
 function FeaturesTablet() {
   const [headingRef, headingInView] = useInView()
   return (
-    <section className="w-full px-[40px] py-[48px]">
+    <section className="w-full px-[40px] py-[56px]">
       <div className="flex flex-col gap-[48px] items-center w-full">
         <div ref={headingRef} className="flex flex-col gap-[8px] items-center w-full" style={fadeInUp(headingInView)}>
           <p className="font-['Inter',sans-serif] font-semibold not-italic text-[#525252] text-[16px] leading-[18px] text-center tracking-[-0.48px]">WHAT YOU GET</p>

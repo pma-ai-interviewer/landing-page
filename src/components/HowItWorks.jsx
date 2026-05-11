@@ -207,7 +207,7 @@ function HowItWorksContainerTablet() {
   const [row2Ref, row2InView] = useInView()
   return (
     <section className="content-stretch flex flex-col items-center justify-center px-[40px] relative w-full">
-      <div className="content-stretch flex flex-col gap-[48px] items-center justify-center py-[48px] relative shrink-0 w-full">
+      <div className="content-stretch flex flex-col gap-[48px] items-center justify-center py-[56px] relative shrink-0 w-full">
         <TitleTablet />
         <div className="content-stretch flex flex-col gap-[40px] items-center justify-center relative shrink-0 w-full">
           <div ref={row1Ref} className="content-stretch flex flex-col gap-[40px] items-center justify-center relative shrink-0 w-full" style={fadeInUp(row1InView, 0)}>

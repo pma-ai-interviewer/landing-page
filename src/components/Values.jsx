@@ -232,7 +232,7 @@ function ValueCard({ card, imgHeight, index = 0, titleMinLines }) {
 
 function ValuesMobile() {
   return (
-    <section className="w-full px-[16px] pt-[80px] pb-[48px]">
+    <section className="w-full px-[16px] py-[48px]">
       <div className="flex flex-col gap-[32px] items-center w-full">
         <div className="flex flex-col gap-[8px] items-center text-center w-full">
           <p className="font-['Inter',sans-serif] font-semibold text-[#525252] text-[16px] leading-[18px] tracking-[-0.48px] uppercase">Why Practicely</p>
@@ -252,7 +252,7 @@ function ValuesMobile() {
 
 function ValuesTablet() {
   return (
-    <section className="w-full px-[40px] pt-[96px] pb-[56px]">
+    <section className="w-full px-[40px] py-[56px]">
       <div className="flex flex-col gap-[48px] items-center w-full">
         <div className="flex flex-col gap-[8px] items-center text-center w-full">
           <p className="font-['Inter',sans-serif] font-semibold text-[#525252] text-[16px] leading-[18px] tracking-[-0.48px] uppercase">Why Practicely</p>
@@ -272,7 +272,7 @@ function ValuesTablet() {
 
 function ValuesDesktop() {
   return (
-    <section className="w-full pt-[128px] pb-[80px]">
+    <section className="w-full py-[80px]">
       <div className="flex flex-col gap-[56px] items-center max-w-[1200px] mx-auto px-[40px]">
         <div className="flex flex-col gap-[8px] items-center text-center w-full">
           <p className="font-['Inter',sans-serif] font-semibold text-[#525252] text-[16px] leading-[18px] tracking-[-0.48px] uppercase">Why Practicely</p>
