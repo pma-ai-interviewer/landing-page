@@ -15,6 +15,30 @@ function useWindowWidth() {
   return width
 }
 
+// ─── Shiny "offer" word ───────────────────────────────────────────────────
+
+function OfferShine({ children }) {
+  return (
+    <>
+      <style>{`
+        @keyframes offer-shine {
+          0%   { background-position: 200% center; }
+          100% { background-position: -200% center; }
+        }
+        .offer-shine {
+          background-image: linear-gradient(110deg, #fa6400 0%, #fa6400 35%, #ffe1c6 50%, #fa6400 65%, #fa6400 100%);
+          background-size: 200% auto;
+          -webkit-background-clip: text;
+          background-clip: text;
+          color: transparent;
+          animation: offer-shine 3.5s linear infinite;
+        }
+      `}</style>
+      <span className="offer-shine">{children}</span>
+    </>
+  )
+}
+
 // ─── Mobile ────────────────────────────────────────────────────────────────
 
 function Frame2147236750Mobile() {
@@ -36,7 +60,7 @@ function Frame2147236704Mobile({ mounted }) {
 function Frame2147236703Mobile({ mounted }) {
   return (
     <div className="content-stretch flex flex-col gap-[24px] items-center relative shrink-0 w-full">
-      <h1 className="block font-['Geist',sans-serif] font-medium leading-[40px] relative shrink-0 text-[#171717] text-[36px] text-center tracking-[-1.08px] w-full" style={fadeInUp(mounted, 0)}>Turn every product manager interview into an <span className="bg-gradient-to-r from-[#fa6400] to-[#ff9248] bg-clip-text text-transparent">offer</span></h1>
+      <h1 className="block font-['Geist',sans-serif] font-medium leading-[40px] relative shrink-0 text-[#171717] text-[36px] text-center tracking-[-1.08px] w-full" style={fadeInUp(mounted, 0)}>Turn every product manager interview into an <OfferShine>offer</OfferShine></h1>
       <Frame2147236704Mobile mounted={mounted} />
     </div>
   );
@@ -44,11 +68,11 @@ function Frame2147236703Mobile({ mounted }) {
 
 function Frame2147236706Mobile({ mounted }) {
   return (
-    <div className="content-stretch flex flex-col gap-[32px] items-center py-[24px] relative shrink-0 w-full">
+    <div className="content-stretch flex flex-col gap-[44px] items-center pt-[56px] pb-[24px] relative shrink-0 w-full">
       <Frame2147236703Mobile mounted={mounted} />
       <a
         href={REGISTER_URL}
-        className="inline-flex items-center justify-center bg-[#171717] rounded-[8px] h-[42px] px-[24px] font-['Geist',sans-serif] font-medium text-[16px] text-white tracking-[0.07px] whitespace-nowrap hover:bg-[#2a2a2a] transition-colors"
+        className="inline-flex items-center justify-center bg-[#171717] rounded-[8px] h-[42px] px-[24px] min-w-[200px] font-['Geist',sans-serif] font-medium text-[16px] text-white tracking-[0.07px] whitespace-nowrap hover:bg-[#2a2a2a] transition-colors"
         style={fadeInUp(mounted, 0.15)}
       >
         Get started
@@ -115,7 +139,7 @@ function Frame2147236704Tablet({ mounted }) {
 function Frame2147236703Tablet({ mounted }) {
   return (
     <div className="content-stretch flex flex-col gap-[24px] items-center relative shrink-0 w-full">
-      <h1 className="block font-['Geist',sans-serif] font-medium leading-[52px] relative shrink-0 text-[#171717] text-[48px] text-center tracking-[-1.44px] w-full" style={fadeInUp(mounted, 0)}>Turn every product manager interview into an <span className="bg-gradient-to-r from-[#fa6400] to-[#ff9248] bg-clip-text text-transparent">offer</span></h1>
+      <h1 className="block font-['Geist',sans-serif] font-medium leading-[52px] relative shrink-0 text-[#171717] text-[48px] text-center tracking-[-1.44px] w-full" style={fadeInUp(mounted, 0)}>Turn every product manager interview into an <OfferShine>offer</OfferShine></h1>
       <Frame2147236704Tablet mounted={mounted} />
     </div>
   );
@@ -123,11 +147,11 @@ function Frame2147236703Tablet({ mounted }) {
 
 function Frame2147236706Tablet({ mounted }) {
   return (
-    <div className="content-stretch flex flex-col gap-[32px] items-center py-[36px] relative shrink-0 w-full">
+    <div className="content-stretch flex flex-col gap-[52px] items-center pt-[88px] pb-[36px] relative shrink-0 w-full">
       <Frame2147236703Tablet mounted={mounted} />
       <a
         href={REGISTER_URL}
-        className="inline-flex items-center justify-center bg-[#171717] rounded-[8px] h-[42px] px-[24px] font-['Geist',sans-serif] font-medium text-[16px] text-white tracking-[0.07px] whitespace-nowrap hover:bg-[#2a2a2a] transition-colors"
+        className="inline-flex items-center justify-center bg-[#171717] rounded-[8px] h-[42px] px-[24px] min-w-[200px] font-['Geist',sans-serif] font-medium text-[16px] text-white tracking-[0.07px] whitespace-nowrap hover:bg-[#2a2a2a] transition-colors"
         style={fadeInUp(mounted, 0.15)}
       >
         Get started
@@ -190,7 +214,7 @@ function Frame2147236704Desktop({ mounted }) {
 function Frame2147236703Desktop({ mounted }) {
   return (
     <div className="content-stretch flex flex-col gap-[24px] items-center relative shrink-0 w-full">
-      <h1 className="block font-['Geist',sans-serif] font-medium leading-[68px] relative shrink-0 text-[#171717] text-[64px] text-center tracking-[-1.92px] w-full" style={fadeInUp(mounted, 0)}>Turn every product manager interview into an <span className="bg-gradient-to-r from-[#fa6400] to-[#ff9248] bg-clip-text text-transparent">offer</span></h1>
+      <h1 className="block font-['Geist',sans-serif] font-medium leading-[68px] relative shrink-0 text-[#171717] text-[64px] text-center tracking-[-1.92px] w-full" style={fadeInUp(mounted, 0)}>Turn every product manager interview into an <OfferShine>offer</OfferShine></h1>
       <Frame2147236704Desktop mounted={mounted} />
     </div>
   );
@@ -198,11 +222,11 @@ function Frame2147236703Desktop({ mounted }) {
 
 function Frame2147236706Desktop({ mounted }) {
   return (
-    <div className="content-stretch flex flex-col gap-[32px] items-center justify-center py-[64px] relative shrink-0 w-full">
+    <div className="content-stretch flex flex-col gap-[56px] items-center justify-center pt-[120px] pb-[64px] relative shrink-0 w-full">
       <Frame2147236703Desktop mounted={mounted} />
       <a
         href={REGISTER_URL}
-        className="inline-flex items-center justify-center bg-[#171717] rounded-[8px] h-[42px] px-[24px] font-['Geist',sans-serif] font-medium text-[16px] text-white tracking-[0.07px] whitespace-nowrap hover:bg-[#2a2a2a] transition-colors"
+        className="inline-flex items-center justify-center bg-[#171717] rounded-[8px] h-[42px] px-[24px] min-w-[200px] font-['Geist',sans-serif] font-medium text-[16px] text-white tracking-[0.07px] whitespace-nowrap hover:bg-[#2a2a2a] transition-colors"
         style={fadeInUp(mounted, 0.15)}
       >
         Get started
