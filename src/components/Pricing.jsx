@@ -108,16 +108,16 @@ function PricingCard({ plan, extraClass = '', index = 0 }) {
       {/* Header */}
       <div className="flex flex-col gap-[6px]">
         <div className="flex items-center justify-between gap-[8px]">
-          <p className="font-['Geist',sans-serif] font-semibold text-[#171717] text-[18px] leading-[1.3] tracking-[-0.09px]">
+          <p className="font-['Geist',sans-serif] font-semibold text-[#171717] text-[20px] leading-[1.3] tracking-[-0.1px]">
             {plan.name}
           </p>
           {plan.tag && (
-            <span className="inline-flex items-center px-[8px] py-[3px] rounded-full bg-[#fff0e6] text-[#fa6400] font-['Geist',sans-serif] font-semibold text-[11px] tracking-[0.3px] uppercase shrink-0">
+            <span className="inline-flex items-center px-[8px] py-[3px] rounded-full bg-[#fff0e6] text-[#fa6400] font-['Geist',sans-serif] font-semibold text-[12px] tracking-[0.3px] uppercase shrink-0">
               {plan.tag}
             </span>
           )}
         </div>
-        <p className="font-['Geist',sans-serif] font-normal text-[#737373] text-[14px] leading-[1.4] tracking-[-0.07px]">
+        <p className="font-['Geist',sans-serif] font-normal text-[#737373] text-[15px] leading-[1.4] tracking-[-0.07px]">
           {plan.subtitle}
         </p>
       </div>
@@ -127,7 +127,7 @@ function PricingCard({ plan, extraClass = '', index = 0 }) {
         <span className="font-['Geist',sans-serif] font-semibold text-[#171717] text-[28px] leading-[1] tracking-[-0.7px]">
           {plan.price}
         </span>
-        <span className="font-['Geist',sans-serif] font-normal text-[#a3a3a3] text-[14px] leading-[1.4]">
+        <span className="font-['Geist',sans-serif] font-normal text-[#a3a3a3] text-[15px] leading-[1.4]">
           {plan.period}
         </span>
       </div>
@@ -140,7 +140,7 @@ function PricingCard({ plan, extraClass = '', index = 0 }) {
         {plan.features.map((text, i) => (
           <li key={i} className="flex items-start gap-[8px]">
             <Check />
-            <span className="font-['Geist',sans-serif] font-normal text-[#525252] text-[14px] leading-[1.5] tracking-[-0.07px]">
+            <span className="font-['Geist',sans-serif] font-normal text-[#525252] text-[15px] leading-[1.5] tracking-[-0.07px]">
               {text}
             </span>
           </li>
@@ -150,13 +150,13 @@ function PricingCard({ plan, extraClass = '', index = 0 }) {
       {/* CTA */}
       <a
         href="https://interviewer.pmaccelerator.io/register"
-        className={`mt-7 inline-flex items-center justify-center h-[42px] w-full rounded-[8px] font-['Geist',sans-serif] font-medium text-[15px] tracking-[-0.07px] transition-colors ${ctaClass}`}
+        className={`mt-7 inline-flex items-center justify-center h-[42px] w-full rounded-[8px] font-['Geist',sans-serif] font-medium text-[16px] tracking-[-0.07px] transition-colors ${ctaClass}`}
       >
         {plan.cta}
       </a>
 
       {/* Note */}
-      <p className="mt-6 min-h-[36px] font-['Geist',sans-serif] font-normal text-[#a3a3a3] text-[12px] leading-[1.5] text-center">
+      <p className="mt-6 min-h-[36px] font-['Geist',sans-serif] font-normal text-[#a3a3a3] text-[13px] leading-[1.5] text-center">
         {plan.description}
       </p>
     </div>
