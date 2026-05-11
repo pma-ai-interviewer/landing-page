@@ -156,7 +156,7 @@ function PricingCard({ plan, extraClass = '', index = 0 }) {
       </a>
 
       {/* Note */}
-      <p className="mt-6 font-['Geist',sans-serif] font-normal text-[#a3a3a3] text-[12px] leading-[1.5] text-center">
+      <p className="mt-6 min-h-[36px] font-['Geist',sans-serif] font-normal text-[#a3a3a3] text-[12px] leading-[1.5] text-center">
         {plan.description}
       </p>
     </div>
