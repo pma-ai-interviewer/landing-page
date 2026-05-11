@@ -192,37 +192,37 @@ const cards = [
 
 // ─── Card ─────────────────────────────────────────────────────────────────────
 
-function ValueCard({ card, circleClass, index = 0, titleMinLines }) {
+function ValueCard({ card, aspectClass = 'aspect-[4/5]', titleSize = 'text-[26px]', index = 0 }) {
   const [ref, inView] = useInView()
   return (
     <div
       ref={ref}
-      className="flex flex-1 flex-col gap-[20px] items-center group"
+      className={`group relative flex-1 ${aspectClass} rounded-[20px] overflow-hidden shadow-[0_6px_24px_rgba(0,0,0,0.10)]`}
       style={{
         opacity: inView ? 1 : 0,
         transform: inView ? 'translateY(0)' : 'translateY(28px)',
         transition: `opacity 0.55s ease ${index * 0.12}s, transform 0.55s ease ${index * 0.12}s`,
       }}
     >
-      <div className={`${circleClass} relative aspect-square rounded-full overflow-hidden shrink-0`}>
-        {card.photo
-          ? <img
-              src={card.photo}
-              alt={card.title}
-              className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-[1.04]"
-              style={{ objectPosition: card.objectPosition }}
-            />
-          : illustrations[card.illustration]
-        }
-      </div>
-      <div className="flex flex-col gap-[8px] text-center w-full">
-        <p
-          className="font-['Geist',sans-serif] font-medium text-[#171717] text-[20px] leading-[1.3] tracking-[-0.1px]"
-          style={titleMinLines ? { minHeight: `${titleMinLines * 1.3}em` } : undefined}
-        >
+      {card.photo
+        ? <img
+            src={card.photo}
+            alt={card.title}
+            className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.05]"
+            style={{ objectPosition: card.objectPosition }}
+          />
+        : <div className="absolute inset-0">{illustrations[card.illustration]}</div>
+      }
+      {/* Dark gradient overlay for text legibility */}
+      <div aria-hidden="true" className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/30 to-transparent" />
+      {/* Text overlay */}
+      <div className="absolute inset-x-0 bottom-0 p-[24px] flex flex-col gap-[8px]">
+        <p className={`font-['Geist',sans-serif] font-medium text-white ${titleSize} leading-[1.2] tracking-[-0.4px]`}>
           {card.title}
         </p>
-        <p className="font-['Geist',sans-serif] font-normal text-[#737373] text-[16px] leading-[1.5]">{card.body}</p>
+        <p className="font-['Geist',sans-serif] font-normal text-white/85 text-[15px] leading-[1.5]">
+          {card.body}
+        </p>
       </div>
     </div>
   )
@@ -238,9 +238,9 @@ function ValuesMobile() {
           <p className="font-['Inter',sans-serif] font-semibold text-[#525252] text-[16px] leading-[18px] tracking-[-0.48px] uppercase">Why Practicely</p>
           <h2 className="font-['Geist',sans-serif] font-medium text-[#171717] text-[32px] leading-[36px] tracking-[-0.96px] w-full">Built for your career journey</h2>
         </div>
-        <div className="flex flex-col gap-[48px] w-full">
+        <div className="flex flex-col gap-[20px] w-full">
           {cards.map((card, i) => (
-            <ValueCard key={i} card={card} circleClass="w-[220px]" index={i} />
+            <ValueCard key={i} card={card} aspectClass="aspect-[4/5]" titleSize="text-[24px]" index={i} />
           ))}
         </div>
       </div>
@@ -258,9 +258,9 @@ function ValuesTablet() {
           <p className="font-['Inter',sans-serif] font-semibold text-[#525252] text-[16px] leading-[18px] tracking-[-0.48px] uppercase">Why Practicely</p>
           <h2 className="font-['Geist',sans-serif] font-medium text-[#171717] text-[36px] leading-[40px] tracking-[-1.08px] w-full">Built for your career journey</h2>
         </div>
-        <div className="flex flex-col gap-[56px] items-center w-full max-w-[720px]">
+        <div className="flex gap-[20px] items-stretch w-full">
           {cards.map((card, i) => (
-            <ValueCard key={i} card={card} circleClass="w-[280px]" index={i} />
+            <ValueCard key={i} card={card} aspectClass="aspect-[4/5]" titleSize="text-[22px]" index={i} />
           ))}
         </div>
       </div>
@@ -278,9 +278,9 @@ function ValuesDesktop() {
           <p className="font-['Inter',sans-serif] font-semibold text-[#525252] text-[16px] leading-[18px] tracking-[-0.48px] uppercase">Why Practicely</p>
           <h2 className="font-['Geist',sans-serif] font-medium text-[#171717] text-[48px] leading-[52px] tracking-[-1.44px] w-full">Built for your career journey</h2>
         </div>
-        <div className="flex gap-[64px] items-start w-full">
+        <div className="flex gap-[24px] items-stretch w-full">
           {cards.map((card, i) => (
-            <ValueCard key={i} card={card} circleClass="w-[240px]" index={i} titleMinLines={2} />
+            <ValueCard key={i} card={card} aspectClass="aspect-[4/5]" titleSize="text-[28px]" index={i} />
           ))}
         </div>
       </div>
