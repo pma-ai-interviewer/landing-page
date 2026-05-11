@@ -134,8 +134,8 @@ function ContactContent({ headingClass, py, px }) {
           <InfoCard
             icon={<MailIcon />}
             label="Email us"
-            value="info@pmaccelerator.io"
-            href="mailto:info@pmaccelerator.io"
+            value="support@pmaccelerator.io"
+            href="mailto:support@pmaccelerator.io"
             index={0}
           />
           <InfoDetails index={1} />
@@ -144,7 +144,7 @@ function ContactContent({ headingClass, py, px }) {
         {/* CTA */}
         <div ref={ctaRef} style={fadeInUp(ctaInView, 0.1)}>
           <a
-            href="mailto:info@pmaccelerator.io"
+            href="mailto:support@pmaccelerator.io"
             className="inline-flex items-center justify-center bg-[#171717] rounded-[8px] h-[42px] px-[28px] font-['Geist',sans-serif] font-medium text-[16px] text-white tracking-[0.07px] whitespace-nowrap hover:bg-[#2a2a2a] transition-colors"
           >
             Send us an email
