@@ -192,19 +192,19 @@ const cards = [
 
 // ─── Card ─────────────────────────────────────────────────────────────────────
 
-function ValueCard({ card, imgHeight, index = 0, titleMinLines }) {
+function ValueCard({ card, circleClass, index = 0, titleMinLines }) {
   const [ref, inView] = useInView()
   return (
     <div
       ref={ref}
-      className="flex flex-1 flex-col gap-[16px] group"
+      className="flex flex-1 flex-col gap-[20px] items-center group"
       style={{
         opacity: inView ? 1 : 0,
         transform: inView ? 'translateY(0)' : 'translateY(28px)',
         transition: `opacity 0.55s ease ${index * 0.12}s, transform 0.55s ease ${index * 0.12}s`,
       }}
     >
-      <div className={`${imgHeight} relative rounded-[16px] w-full overflow-hidden shrink-0`}>
+      <div className={`${circleClass} relative aspect-square rounded-full overflow-hidden shrink-0`}>
         {card.photo
           ? <img
               src={card.photo}
@@ -215,7 +215,7 @@ function ValueCard({ card, imgHeight, index = 0, titleMinLines }) {
           : illustrations[card.illustration]
         }
       </div>
-      <div className="flex flex-col gap-[8px]">
+      <div className="flex flex-col gap-[8px] text-center w-full">
         <p
           className="font-['Geist',sans-serif] font-medium text-[#171717] text-[20px] leading-[1.3] tracking-[-0.1px]"
           style={titleMinLines ? { minHeight: `${titleMinLines * 1.3}em` } : undefined}
@@ -238,9 +238,9 @@ function ValuesMobile() {
           <p className="font-['Inter',sans-serif] font-semibold text-[#525252] text-[16px] leading-[18px] tracking-[-0.48px] uppercase">Why Practicely</p>
           <h2 className="font-['Geist',sans-serif] font-medium text-[#171717] text-[32px] leading-[36px] tracking-[-0.96px] w-full">Built for your career journey</h2>
         </div>
-        <div className="flex flex-col gap-[32px] w-full">
+        <div className="flex flex-col gap-[48px] w-full">
           {cards.map((card, i) => (
-            <ValueCard key={i} card={card} imgHeight="h-[220px]" index={i} />
+            <ValueCard key={i} card={card} circleClass="w-[220px]" index={i} />
           ))}
         </div>
       </div>
@@ -258,9 +258,9 @@ function ValuesTablet() {
           <p className="font-['Inter',sans-serif] font-semibold text-[#525252] text-[16px] leading-[18px] tracking-[-0.48px] uppercase">Why Practicely</p>
           <h2 className="font-['Geist',sans-serif] font-medium text-[#171717] text-[36px] leading-[40px] tracking-[-1.08px] w-full">Built for your career journey</h2>
         </div>
-        <div className="flex flex-col gap-[40px] items-center w-full max-w-[720px]">
+        <div className="flex flex-col gap-[56px] items-center w-full max-w-[720px]">
           {cards.map((card, i) => (
-            <ValueCard key={i} card={card} imgHeight="h-[360px]" index={i} />
+            <ValueCard key={i} card={card} circleClass="w-[280px]" index={i} />
           ))}
         </div>
       </div>
@@ -278,9 +278,9 @@ function ValuesDesktop() {
           <p className="font-['Inter',sans-serif] font-semibold text-[#525252] text-[16px] leading-[18px] tracking-[-0.48px] uppercase">Why Practicely</p>
           <h2 className="font-['Geist',sans-serif] font-medium text-[#171717] text-[48px] leading-[52px] tracking-[-1.44px] w-full">Built for your career journey</h2>
         </div>
-        <div className="flex gap-[24px] items-start w-full">
+        <div className="flex gap-[64px] items-start w-full">
           {cards.map((card, i) => (
-            <ValueCard key={i} card={card} imgHeight="h-[260px]" index={i} titleMinLines={2} />
+            <ValueCard key={i} card={card} circleClass="w-[240px]" index={i} titleMinLines={2} />
           ))}
         </div>
       </div>
