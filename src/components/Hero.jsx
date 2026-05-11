@@ -48,7 +48,7 @@ function Frame2147236706Mobile({ mounted }) {
       <Frame2147236703Mobile mounted={mounted} />
       <a
         href={REGISTER_URL}
-        className="inline-flex items-center justify-center bg-[#210099] rounded-[8px] h-[42px] px-[24px] font-['Geist',sans-serif] font-medium text-[16px] text-white tracking-[0.07px] whitespace-nowrap hover:bg-[#1a0080] transition-colors"
+        className="inline-flex items-center justify-center bg-[#404040] rounded-[8px] h-[42px] px-[24px] font-['Geist',sans-serif] font-medium text-[16px] text-white tracking-[0.07px] whitespace-nowrap hover:bg-[#262626] transition-colors"
         style={fadeInUp(mounted, 0.15)}
       >
         Get started
@@ -188,7 +188,7 @@ function Frame2147236706Tablet({ mounted }) {
       <Frame2147236703Tablet mounted={mounted} />
       <a
         href={REGISTER_URL}
-        className="inline-flex items-center justify-center bg-[#210099] rounded-[8px] h-[42px] px-[24px] font-['Geist',sans-serif] font-medium text-[16px] text-white tracking-[0.07px] whitespace-nowrap hover:bg-[#1a0080] transition-colors"
+        className="inline-flex items-center justify-center bg-[#404040] rounded-[8px] h-[42px] px-[24px] font-['Geist',sans-serif] font-medium text-[16px] text-white tracking-[0.07px] whitespace-nowrap hover:bg-[#262626] transition-colors"
         style={fadeInUp(mounted, 0.15)}
       >
         Get started
@@ -265,7 +265,7 @@ function Frame2147236706Desktop({ mounted }) {
       <Frame2147236703Desktop mounted={mounted} />
       <a
         href={REGISTER_URL}
-        className="inline-flex items-center justify-center bg-[#210099] rounded-[8px] h-[42px] px-[24px] font-['Geist',sans-serif] font-medium text-[16px] text-white tracking-[0.07px] whitespace-nowrap hover:bg-[#1a0080] transition-colors"
+        className="inline-flex items-center justify-center bg-[#404040] rounded-[8px] h-[42px] px-[24px] font-['Geist',sans-serif] font-medium text-[16px] text-white tracking-[0.07px] whitespace-nowrap hover:bg-[#262626] transition-colors"
         style={fadeInUp(mounted, 0.15)}
       >
         Get started

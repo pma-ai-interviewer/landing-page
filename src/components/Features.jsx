@@ -120,7 +120,7 @@ function FeaturesMobile() {
     <section className="w-full px-[16px] py-[48px]">
       <div className="flex flex-col gap-[48px] items-center w-full">
         <div ref={headingRef} className="flex flex-col gap-[8px] items-center w-full" style={fadeInUp(headingInView)}>
-          <p className="font-['Inter',sans-serif] font-semibold not-italic text-[#210099] text-[16px] leading-[18px] text-center tracking-[-0.48px]">WHAT YOU GET</p>
+          <p className="font-['Inter',sans-serif] font-semibold not-italic text-[#525252] text-[16px] leading-[18px] text-center tracking-[-0.48px]">WHAT YOU GET</p>
           <h3 className="font-['Geist',sans-serif] font-medium text-[#171717] text-[32px] leading-[36px] text-center tracking-[-0.96px] w-full">Your interview success, on your schedule</h3>
         </div>
         <div className="flex flex-col gap-[24px] items-center w-full">
@@ -141,7 +141,7 @@ function FeaturesTablet() {
     <section className="w-full px-[40px] py-[48px]">
       <div className="flex flex-col gap-[48px] items-center w-full">
         <div ref={headingRef} className="flex flex-col gap-[8px] items-center w-full" style={fadeInUp(headingInView)}>
-          <p className="font-['Inter',sans-serif] font-semibold not-italic text-[#210099] text-[16px] leading-[18px] text-center tracking-[-0.48px]">WHAT YOU GET</p>
+          <p className="font-['Inter',sans-serif] font-semibold not-italic text-[#525252] text-[16px] leading-[18px] text-center tracking-[-0.48px]">WHAT YOU GET</p>
           <h3 className="font-['Geist',sans-serif] font-medium text-[#171717] text-[36px] leading-[40px] text-center tracking-[-1.08px] w-full">Your interview success, on your schedule</h3>
         </div>
         <div className="flex flex-wrap gap-[48px] items-center justify-center w-full">
@@ -162,7 +162,7 @@ function FeaturesDesktop() {
     <section className="w-full px-[120px] py-[80px]">
       <div className="flex flex-col gap-[48px] items-center max-w-[1500px] mx-auto">
         <div ref={headingRef} className="flex flex-col gap-[8px] items-center" style={fadeInUp(headingInView)}>
-          <p className="font-['Inter',sans-serif] font-semibold not-italic text-[#210099] text-[16px] leading-[18px] text-center tracking-[-0.48px]">WHAT YOU GET</p>
+          <p className="font-['Inter',sans-serif] font-semibold not-italic text-[#525252] text-[16px] leading-[18px] text-center tracking-[-0.48px]">WHAT YOU GET</p>
           <h3 className="font-['Geist',sans-serif] font-medium text-[#171717] text-[40px] leading-[44px] text-center tracking-[-1.2px] max-w-[909px]">Your interview success, on your schedule</h3>
         </div>
         <div className="flex flex-row gap-[48px] items-start justify-center w-full">

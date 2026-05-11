@@ -118,7 +118,7 @@ function ContactContent({ headingClass, py, px }) {
 
         {/* Header */}
         <div ref={headerRef} className="flex flex-col gap-[12px] items-center text-center" style={fadeInUp(headerInView)}>
-          <p className="font-['Inter',sans-serif] font-semibold text-[#210099] text-[16px] leading-[18px] tracking-[-0.48px] uppercase">
+          <p className="font-['Inter',sans-serif] font-semibold text-[#525252] text-[16px] leading-[18px] tracking-[-0.48px] uppercase">
             Contact
           </p>
           <h1 className={`font-['Geist',sans-serif] font-medium text-[#171717] tracking-[-1.44px] w-full ${headingClass}`}>
@@ -145,7 +145,7 @@ function ContactContent({ headingClass, py, px }) {
         <div ref={ctaRef} style={fadeInUp(ctaInView, 0.1)}>
           <a
             href="mailto:info@pmaccelerator.io"
-            className="inline-flex items-center justify-center bg-[#210099] rounded-[8px] h-[42px] px-[28px] font-['Geist',sans-serif] font-medium text-[16px] text-white tracking-[0.07px] whitespace-nowrap hover:bg-[#1a0080] transition-colors"
+            className="inline-flex items-center justify-center bg-[#404040] rounded-[8px] h-[42px] px-[28px] font-['Geist',sans-serif] font-medium text-[16px] text-white tracking-[0.07px] whitespace-nowrap hover:bg-[#262626] transition-colors"
           >
             Send us an email
           </a>

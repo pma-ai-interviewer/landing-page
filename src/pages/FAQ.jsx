@@ -136,7 +136,7 @@ function FAQHeader({ headingClass }) {
   const [ref, inView] = useInView()
   return (
     <div ref={ref} className="flex flex-col gap-[8px] items-center text-center w-full" style={fadeInUp(inView)}>
-      <p className="font-['Inter',sans-serif] font-semibold text-[#210099] text-[16px] leading-[18px] tracking-[-0.48px] uppercase">FAQ</p>
+      <p className="font-['Inter',sans-serif] font-semibold text-[#525252] text-[16px] leading-[18px] tracking-[-0.48px] uppercase">FAQ</p>
       <h1 className={`font-['Geist',sans-serif] font-medium text-[#171717] tracking-[-1.44px] w-full ${headingClass}`}>
         Got questions? We've got answers
       </h1>

@@ -43,7 +43,7 @@ function TitleMobile() {
   const [ref, inView] = useInView()
   return (
     <div ref={ref} className="content-stretch flex flex-col gap-[8px] items-center justify-center leading-[0] relative shrink-0 text-center w-full" data-name="Title" style={fadeInUp(inView)}>
-      <div className="flex flex-col font-['Inter',sans-serif] font-semibold justify-center not-italic relative shrink-0 text-[#210099] text-[16px] tracking-[-0.48px] uppercase whitespace-nowrap">
+      <div className="flex flex-col font-['Inter',sans-serif] font-semibold justify-center not-italic relative shrink-0 text-[#525252] text-[16px] tracking-[-0.48px] uppercase whitespace-nowrap">
         <p className="leading-[18px]">How It Works</p>
       </div>
       <div className="flex flex-col font-['Geist',sans-serif] font-medium justify-center min-w-full relative shrink-0 text-[#171717] text-[32px] tracking-[-0.96px] w-[min-content]">
@@ -172,7 +172,7 @@ function TitleTablet() {
   const [ref, inView] = useInView()
   return (
     <div ref={ref} className="content-stretch flex flex-col gap-[8px] items-center justify-center leading-[0] relative shrink-0 text-center w-full" style={fadeInUp(inView)}>
-      <div className="flex flex-col font-['Inter',sans-serif] font-semibold justify-center not-italic relative shrink-0 text-[#210099] text-[16px] tracking-[-0.48px] uppercase whitespace-nowrap">
+      <div className="flex flex-col font-['Inter',sans-serif] font-semibold justify-center not-italic relative shrink-0 text-[#525252] text-[16px] tracking-[-0.48px] uppercase whitespace-nowrap">
         <p className="leading-[18px]">How It Works</p>
       </div>
       <div className="flex flex-col font-['Geist',sans-serif] font-medium justify-center min-w-full relative shrink-0 text-[#171717] text-[36px] tracking-[-1.08px] w-[min-content]">
@@ -274,7 +274,7 @@ function TitleDesktop() {
   const [ref, inView] = useInView()
   return (
     <div ref={ref} className="content-stretch flex flex-col gap-[8px] items-center justify-center leading-[0] relative shrink-0 text-center w-full" style={fadeInUp(inView)}>
-      <div className="flex flex-col font-['Inter',sans-serif] font-semibold justify-center not-italic relative shrink-0 text-[#210099] text-[16px] tracking-[-0.48px] uppercase whitespace-nowrap">
+      <div className="flex flex-col font-['Inter',sans-serif] font-semibold justify-center not-italic relative shrink-0 text-[#525252] text-[16px] tracking-[-0.48px] uppercase whitespace-nowrap">
         <p className="leading-[18px]">How It Works</p>
       </div>
       <div className="flex flex-col font-['Geist',sans-serif] font-medium justify-center min-w-full relative shrink-0 text-[#171717] text-[40px] tracking-[-1.2px] w-[min-content]">

@@ -96,7 +96,7 @@ function Header({ labelSize, headingSize, headingLeading, headingTracking, py })
   const [ref, inView] = useInView()
   return (
     <div ref={ref} className="flex flex-col gap-[8px] items-center text-center w-full" style={fadeInUp(inView)}>
-      <p className={`font-['Inter',sans-serif] font-semibold not-italic text-[#210099] uppercase tracking-[-0.48px] leading-[18px] ${labelSize}`}>TESTIMONIALS</p>
+      <p className={`font-['Inter',sans-serif] font-semibold not-italic text-[#525252] uppercase tracking-[-0.48px] leading-[18px] ${labelSize}`}>TESTIMONIALS</p>
       <h3 className={`font-['Geist',sans-serif] font-medium text-[#171717] w-full ${headingSize} ${headingLeading} ${headingTracking}`}>Don't just take our word for it</h3>
       <p className="font-['Geist',sans-serif] font-normal text-[#737373] text-[16px] leading-[1.6]">Tested and refined with input from hiring managers and ex-FAANG PMs.</p>
     </div>

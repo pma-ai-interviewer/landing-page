@@ -235,7 +235,7 @@ function ValuesMobile() {
     <section className="w-full px-[16px] py-[48px]">
       <div className="flex flex-col gap-[32px] items-center w-full">
         <div className="flex flex-col gap-[8px] items-center text-center w-full">
-          <p className="font-['Inter',sans-serif] font-semibold text-[#210099] text-[16px] leading-[18px] tracking-[-0.48px] uppercase">Why Practicely</p>
+          <p className="font-['Inter',sans-serif] font-semibold text-[#525252] text-[16px] leading-[18px] tracking-[-0.48px] uppercase">Why Practicely</p>
           <h2 className="font-['Geist',sans-serif] font-medium text-[#171717] text-[32px] leading-[36px] tracking-[-0.96px] w-full">Built for your career journey</h2>
         </div>
         <div className="flex flex-col gap-[32px] w-full">
@@ -255,7 +255,7 @@ function ValuesTablet() {
     <section className="w-full px-[40px] py-[56px]">
       <div className="flex flex-col gap-[48px] items-center w-full">
         <div className="flex flex-col gap-[8px] items-center text-center w-full">
-          <p className="font-['Inter',sans-serif] font-semibold text-[#210099] text-[16px] leading-[18px] tracking-[-0.48px] uppercase">Why Practicely</p>
+          <p className="font-['Inter',sans-serif] font-semibold text-[#525252] text-[16px] leading-[18px] tracking-[-0.48px] uppercase">Why Practicely</p>
           <h2 className="font-['Geist',sans-serif] font-medium text-[#171717] text-[36px] leading-[40px] tracking-[-1.08px] w-full">Built for your career journey</h2>
         </div>
         <div className="flex flex-col gap-[40px] items-center w-full max-w-[720px]">
@@ -275,7 +275,7 @@ function ValuesDesktop() {
     <section className="w-full py-[80px]">
       <div className="flex flex-col gap-[56px] items-center max-w-[1200px] mx-auto px-[40px]">
         <div className="flex flex-col gap-[8px] items-center text-center w-full">
-          <p className="font-['Inter',sans-serif] font-semibold text-[#210099] text-[16px] leading-[18px] tracking-[-0.48px] uppercase">Why Practicely</p>
+          <p className="font-['Inter',sans-serif] font-semibold text-[#525252] text-[16px] leading-[18px] tracking-[-0.48px] uppercase">Why Practicely</p>
           <h2 className="font-['Geist',sans-serif] font-medium text-[#171717] text-[48px] leading-[52px] tracking-[-1.44px] w-full">Built for your career journey</h2>
         </div>
         <div className="flex gap-[24px] items-start w-full">
