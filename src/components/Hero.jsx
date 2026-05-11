@@ -113,9 +113,6 @@ function BrowserMockup({ children, barHeight = 36, dotSize = 10, urlWidth = '40%
                 <rect x="1.5" y="4.5" width="6" height="5" rx="1" stroke="#999" strokeWidth="1"/>
                 <path d="M3 4.5V3a1.5 1.5 0 0 1 3 0v1.5" stroke="#999" strokeWidth="1" strokeLinecap="round"/>
               </svg>
-              <span style={{ color: '#555', fontSize: barHeight * 0.28, fontFamily: 'Geist, sans-serif' }}>
-                app.interviewer.pmaccelerator.io
-              </span>
             </div>
           </div>
           <div style={{ width: dotSize * 3 + 12, flexShrink: 0 }} />
@@ -210,7 +207,7 @@ function HeaderTablet({ mounted }) {
 
 function Group11Tablet() {
   return (
-    <div className="w-full px-[16px] py-[16px]">
+    <div className="w-full px-[16px] py-[16px]" style={{ maxWidth: '640px', margin: '0 auto' }}>
       <BrowserMockup barHeight={34} dotSize={9} urlWidth="44%" outerPad={24} outerRadius={22}>
         <div style={{ aspectRatio: '16/9', overflow: 'hidden' }}>
           <video autoPlay loop muted playsInline style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}>
@@ -287,7 +284,7 @@ function HeaderDesktop({ mounted }) {
 
 function Group11Desktop() {
   return (
-    <div className="w-full px-[24px] py-[24px]" style={{ maxWidth: '1200px', margin: '0 auto' }}>
+    <div className="w-full px-[24px] py-[24px]" style={{ maxWidth: '1000px', margin: '0 auto' }}>
       <BrowserMockup barHeight={40} dotSize={11} urlWidth="40%" outerPad={32} outerRadius={26}>
         <div style={{ aspectRatio: '16/9', overflow: 'hidden' }}>
           <video autoPlay loop muted playsInline style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}>
