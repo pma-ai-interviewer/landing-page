@@ -72,15 +72,16 @@ function ConnectorH({ width = 48 }) {
 }
 
 // Meandering journey path from upper-right to lower-left across a row gap (desktop only)
-function ConnectorDiagonal({ height = 64 }) {
-  // Hand-tuned cubic beziers create a natural, gently meandering line
-  // with 3 soft swings rather than one long S, so it reads as a path.
+function ConnectorDiagonal({ height = 46 }) {
+  // Three chained cubic beziers form a gentle meander, with mirrored
+  // outward "waves" at the top-right entry (above Choose Your Questions)
+  // and the bottom-left entry (above Mock Interview).
   const h = height
   const d = [
     `M 870 0`,
-    `C 940 ${h * 0.18}, 880 ${h * 0.34}, 700 ${h * 0.38}`,
-    `C 540 ${h * 0.42}, 560 ${h * 0.62}, 420 ${h * 0.66}`,
-    `C 280 ${h * 0.7},  320 ${h * 0.86}, 130 ${h}`,
+    `C 950 ${h * 0.20}, 850 ${h * 0.36}, 680 ${h * 0.40}`,
+    `C 510 ${h * 0.44}, 530 ${h * 0.60}, 360 ${h * 0.64}`,
+    `C 190 ${h * 0.68}, 50  ${h * 0.84}, 130 ${h}`,
   ].join(' ')
   return (
     <div aria-hidden="true" className="w-full self-stretch" style={{ height }}>
@@ -406,7 +407,7 @@ function HowItWorksContainerDesktop() {
               }
             />
           </div>
-          <ConnectorDiagonal height={64} />
+          <ConnectorDiagonal height={46} />
           {/* Row 2 */}
           <div ref={row2Ref} className="content-stretch flex gap-[28px] items-start justify-center relative shrink-0 w-full" style={fadeInUp(row2InView, 0.15)}>
             <StepCardDesktop
