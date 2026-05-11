@@ -58,15 +58,11 @@ function Firework({ size = 80, color = '#fa6400', spokes = 12 }) {
 }
 
 const fireworks = [
-  { size: 110, top: '12%', left: '8%',  spokes: 12, color: '#fa6400', delay: 0,   dur: 4.2 },
-  { size: 70,  top: '34%', left: '20%', spokes: 10, color: '#ff9248', delay: 1.6, dur: 3.6 },
-  { size: 90,  top: '70%', left: '12%', spokes: 12, color: '#fa6400', delay: 0.8, dur: 4.0 },
-  { size: 60,  top: '88%', left: '28%', spokes: 8,  color: '#ff9248', delay: 2.4, dur: 3.4 },
-  { size: 120, top: '14%', left: '78%', spokes: 14, color: '#fa6400', delay: 1.2, dur: 4.4 },
-  { size: 80,  top: '42%', left: '90%', spokes: 10, color: '#ff9248', delay: 2.8, dur: 3.8 },
-  { size: 100, top: '74%', left: '82%', spokes: 12, color: '#fa6400', delay: 0.4, dur: 4.2 },
-  { size: 65,  top: '90%', left: '66%', spokes: 8,  color: '#ff9248', delay: 1.9, dur: 3.5 },
-  { size: 85,  top: '8%',  left: '50%', spokes: 10, color: '#fa6400', delay: 3.0, dur: 4.0 },
+  { size: 110, top: '18%', left: '10%', spokes: 12, color: '#ffffff', delay: 0,   dur: 4.6 },
+  { size: 90,  top: '70%', left: '14%', spokes: 10, color: '#ffffff', delay: 1.8, dur: 4.2 },
+  { size: 120, top: '20%', left: '78%', spokes: 12, color: '#ffffff', delay: 1.0, dur: 4.8 },
+  { size: 80,  top: '66%', left: '84%', spokes: 10, color: '#ffffff', delay: 2.6, dur: 4.0 },
+  { size: 70,  top: '46%', left: '48%', spokes: 10, color: '#ffffff', delay: 3.4, dur: 4.4 },
 ]
 
 function FireworkField() {
@@ -75,8 +71,8 @@ function FireworkField() {
       <style>{`
         @keyframes fw-burst {
           0%   { transform: translate(-50%, -50%) scale(0.25); opacity: 0; }
-          15%  { opacity: 1; }
-          55%  { transform: translate(-50%, -50%) scale(1.05); opacity: 0.9; }
+          20%  { opacity: 0.55; }
+          55%  { transform: translate(-50%, -50%) scale(1.05); opacity: 0.5; }
           100% { transform: translate(-50%, -50%) scale(1.3); opacity: 0; }
         }
         .cta-fw {
@@ -111,7 +107,7 @@ export default function CTABanner() {
       : 'text-[40px] leading-[44px] tracking-[-1.2px]'
 
   return (
-    <section className="relative overflow-hidden w-full bg-gradient-to-br from-[#fde8d4] to-[#fac9a0] py-[140px] px-[24px]">
+    <section className="relative overflow-hidden w-full bg-gradient-to-br from-[#fde8d4] to-[#fac9a0] pt-[140px] pb-[96px] px-[24px]">
       <FireworkField />
       <div ref={ref} className="relative flex flex-col items-center gap-[16px] text-center max-w-[800px] mx-auto" style={fadeInUp(inView)}>
         <h2 className={`font-['Geist',sans-serif] font-medium text-[#171717] ${headingClass}`}>
