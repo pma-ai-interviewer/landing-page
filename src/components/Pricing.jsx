@@ -184,10 +184,10 @@ function SectionHeader({ headingClass }) {
 
 function PricingMobile() {
   return (
-    <section className="w-full px-[16px] pt-[80px] pb-[48px]">
+    <section className="w-full px-[16px] pt-[80px] pb-[48px]" style={{ backgroundImage: 'linear-gradient(to right, rgba(0,0,0,0.025) 1px, transparent 1px), linear-gradient(to bottom, rgba(0,0,0,0.025) 1px, transparent 1px)', backgroundSize: '32px 32px' }}>
       <div className="flex flex-col gap-[32px] items-center w-full">
         <SectionHeader headingClass="text-[32px] leading-[36px]" />
-        <ul className="flex flex-col gap-[16px] w-full">
+        <ul className="flex flex-col gap-[24px] w-full">
           {plans.map((plan, i) => (
             <PricingCard key={i} plan={plan} extraClass="w-full" index={i} />
           ))}
@@ -199,12 +199,12 @@ function PricingMobile() {
 
 function PricingTablet() {
   return (
-    <section className="w-full px-[40px] pt-[96px] pb-[56px]">
+    <section className="w-full px-[40px] pt-[96px] pb-[56px]" style={{ backgroundImage: 'linear-gradient(to right, rgba(0,0,0,0.025) 1px, transparent 1px), linear-gradient(to bottom, rgba(0,0,0,0.025) 1px, transparent 1px)', backgroundSize: '32px 32px' }}>
       <div className="flex flex-col gap-[48px] items-center w-full">
         <SectionHeader headingClass="text-[36px] leading-[40px] tracking-[-1.08px]" />
-        <ul className="flex flex-wrap gap-[16px] justify-center items-stretch w-full">
+        <ul className="flex flex-wrap gap-[28px] justify-center items-stretch w-full">
           {plans.map((plan, i) => (
-            <PricingCard key={i} plan={plan} extraClass="w-[320px]" index={i} />
+            <PricingCard key={i} plan={plan} extraClass="w-[360px]" index={i} />
           ))}
         </ul>
       </div>
@@ -214,10 +214,10 @@ function PricingTablet() {
 
 function PricingDesktop() {
   return (
-    <section className="w-full pt-[128px] pb-[80px]">
-      <div className="flex flex-col gap-[56px] items-center max-w-[1200px] mx-auto px-[40px]">
+    <section className="w-full pt-[128px] pb-[80px]" style={{ backgroundImage: 'linear-gradient(to right, rgba(0,0,0,0.025) 1px, transparent 1px), linear-gradient(to bottom, rgba(0,0,0,0.025) 1px, transparent 1px)', backgroundSize: '32px 32px' }}>
+      <div className="flex flex-col gap-[56px] items-center max-w-[1320px] mx-auto px-[40px]">
         <SectionHeader headingClass="text-[48px] leading-[52px] tracking-[-1.44px]" />
-        <ul className="flex gap-[16px] items-stretch w-full">
+        <ul className="flex gap-[40px] items-stretch w-full">
           {plans.map((plan, i) => (
             <PricingCard key={i} plan={plan} extraClass="flex-1" index={i} />
           ))}
