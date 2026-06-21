@@ -15,8 +15,8 @@ export default function App() {
     <div className="min-h-screen bg-white" style={{ fontFamily: 'Geist, sans-serif' }}>
       <Navbar />
       <HeroContainer />
-      <HowItWorksContainer />
       <ResumeEditorContainer />
+      <HowItWorksContainer />
       <FeaturesContainer />
       <div className="bg-gradient-to-br from-[#fff8f5] to-[#fde8d4]"><TestimonialsContainer /></div>
       <ValuesContainer />

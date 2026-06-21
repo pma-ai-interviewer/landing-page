@@ -101,16 +101,14 @@ function ConnectorDiagonal({ height = 46 }) {
 
 // ─── Mobile ─────────────────────────────────────────────────────────────────
 
-function TitleMobile() {
+// Smaller per-part title — matches the AI Resume Coach part heading.
+function PartTitle({ className }) {
   const [ref, inView] = useInView()
   return (
-    <div ref={ref} className="content-stretch flex flex-col gap-[8px] items-center justify-center leading-[0] relative shrink-0 text-center w-full" data-name="Title" style={fadeInUp(inView)}>
-      <div className="flex flex-col font-['Inter',sans-serif] font-semibold justify-center not-italic relative shrink-0 text-[#525252] text-[16px] tracking-[-0.48px] uppercase whitespace-nowrap">
-        <p className="leading-[18px]">How It Works</p>
-      </div>
-      <div className="flex flex-col font-['Geist',sans-serif] font-medium justify-center min-w-full relative shrink-0 text-[#171717] text-[32px] tracking-[-0.96px] w-[min-content]">
-        <p className="leading-[36px]">Practice until you're confident</p>
-      </div>
+    <div ref={ref} className="w-full text-center" style={fadeInUp(inView)}>
+      <h3 className={`font-['Geist',sans-serif] font-medium text-[#171717] mx-auto ${className}`}>
+        AI Interview Coach: Practice until you're confident
+      </h3>
     </div>
   )
 }
@@ -151,9 +149,9 @@ function HowItWorksContainerMobile() {
   const [row1Ref, row1InView] = useInView()
   const [row2Ref, row2InView] = useInView()
   return (
-    <section className="content-stretch flex flex-col items-center justify-center px-[16px] py-[48px] relative w-full">
-      <div className="content-stretch flex flex-col gap-[32px] items-center justify-center relative shrink-0 w-full">
-        <TitleMobile />
+    <section className="content-stretch flex flex-col items-center justify-center px-[16px] pt-[24px] pb-[48px] relative w-full">
+      <div className="content-stretch flex flex-col gap-[24px] items-center justify-center relative shrink-0 w-full">
+        <PartTitle className="text-[22px] leading-[28px] tracking-[-0.5px]" />
         <div className="content-stretch flex flex-col gap-[24px] items-center justify-center relative shrink-0 w-full">
           {/* Row 1 */}
           <div ref={row1Ref} className="content-stretch flex flex-col gap-[24px] items-start relative shrink-0 w-full" style={fadeInUp(row1InView, 0)}>
@@ -233,22 +231,6 @@ function HowItWorksContainerMobile() {
 
 // ─── Tablet ──────────────────────────────────────────────────────────────────
 
-function TitleTablet() {
-  const [ref, inView] = useInView()
-  return (
-    <div ref={ref} className="content-stretch flex flex-col gap-[8px] items-center justify-center leading-[0] relative shrink-0 text-center w-full" style={fadeInUp(inView)}>
-      <div className="flex flex-col font-['Inter',sans-serif] font-semibold justify-center not-italic relative shrink-0 text-[#525252] text-[16px] tracking-[-0.48px] uppercase whitespace-nowrap">
-        <p className="leading-[18px]">How It Works</p>
-      </div>
-      <div className="flex flex-col font-['Geist',sans-serif] font-medium justify-center min-w-full relative shrink-0 text-[#171717] text-[36px] tracking-[-1.08px] w-[min-content]">
-        <p className="leading-[40px]">Practice until you're confident</p>
-      </div>
-    </div>
-  )
-}
-
-
-
 function StepCardTablet({ iconSlot, title, description, imageSlot, imageHeight = 350 }) {
   return (
     <div className="bg-white content-stretch flex flex-col gap-[24px] items-start p-[24px] relative rounded-[16px] shrink-0 w-[860px] shadow-[0_2px_6px_rgba(0,0,0,0.04),0_6px_20px_rgba(0,0,0,0.07)] transition-all duration-300 ease-out hover:-translate-y-[4px] hover:shadow-[0_8px_28px_rgba(0,0,0,0.11)]" style={{ height: 570 }}>
@@ -272,8 +254,8 @@ function HowItWorksContainerTablet() {
   const [row2Ref, row2InView] = useInView()
   return (
     <section className="content-stretch flex flex-col items-center justify-center px-[40px] relative w-full">
-      <div className="content-stretch flex flex-col gap-[48px] items-center justify-center py-[56px] relative shrink-0 w-full">
-        <TitleTablet />
+      <div className="content-stretch flex flex-col gap-[32px] items-center justify-center pt-[28px] pb-[56px] relative shrink-0 w-full">
+        <PartTitle className="text-[24px] leading-[30px] tracking-[-0.72px]" />
         <div className="content-stretch flex flex-col gap-[40px] items-center justify-center relative shrink-0 w-full">
           <div ref={row1Ref} className="content-stretch flex flex-col gap-[40px] items-center justify-center relative shrink-0 w-full" style={fadeInUp(row1InView, 0)}>
             <StepCardTablet
@@ -338,21 +320,6 @@ function HowItWorksContainerTablet() {
 
 // ─── Desktop ─────────────────────────────────────────────────────────────────
 
-function TitleDesktop() {
-  const [ref, inView] = useInView()
-  return (
-    <div ref={ref} className="content-stretch flex flex-col gap-[8px] items-center justify-center leading-[0] relative shrink-0 text-center w-full" style={fadeInUp(inView)}>
-      <div className="flex flex-col font-['Inter',sans-serif] font-semibold justify-center not-italic relative shrink-0 text-[#525252] text-[16px] tracking-[-0.48px] uppercase whitespace-nowrap">
-        <p className="leading-[18px]">How It Works</p>
-      </div>
-      <div className="flex flex-col font-['Geist',sans-serif] font-medium justify-center min-w-full relative shrink-0 text-[#171717] text-[40px] tracking-[-1.2px] w-[min-content]">
-        <p className="leading-[44px]">Practice until you're confident</p>
-      </div>
-    </div>
-  )
-}
-
-
 function StepCardDesktop({ iconSlot, title, description, imageSlot }) {
   return (
     <div className="bg-white content-stretch flex flex-col gap-[16px] h-[500px] items-start overflow-hidden p-[24px] relative rounded-[16px] shrink-0 w-[580px] shadow-[0_2px_6px_rgba(0,0,0,0.04),0_6px_20px_rgba(0,0,0,0.07)] transition-all duration-300 ease-out hover:-translate-y-[5px] hover:shadow-[0_10px_32px_rgba(0,0,0,0.11)]">
@@ -376,8 +343,8 @@ function HowItWorksContainerDesktop() {
   const [row2Ref, row2InView] = useInView()
   return (
     <section className="content-stretch flex items-center justify-center relative w-full">
-      <div className="content-stretch flex flex-1 flex-col gap-[64px] items-center justify-center py-[80px] relative">
-        <TitleDesktop />
+      <div className="content-stretch flex flex-1 flex-col gap-[48px] items-center justify-center pt-[40px] pb-[80px] relative">
+        <PartTitle className="text-[28px] leading-[34px] tracking-[-0.84px] max-w-[860px]" />
         <div className="content-stretch flex flex-col gap-[28px] items-center justify-center relative shrink-0 w-full">
           {/* Row 1 */}
           <div ref={row1Ref} className="content-stretch flex gap-[28px] items-start justify-center relative shrink-0 w-full" style={fadeInUp(row1InView, 0)}>

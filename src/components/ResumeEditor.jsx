@@ -59,6 +59,25 @@ function ConnectorH({ width = 48 }) {
   )
 }
 
+// Meandering journey path from upper-right to lower-left across a row gap
+// (desktop only) — mirrors the connector used in the AI Interview Coach part.
+function ConnectorDiagonal({ height = 46 }) {
+  const h = height
+  const d = [
+    `M 870 0`,
+    `C 950 ${h * 0.20}, 850 ${h * 0.36}, 680 ${h * 0.40}`,
+    `C 510 ${h * 0.44}, 530 ${h * 0.60}, 360 ${h * 0.64}`,
+    `C 190 ${h * 0.68}, 50  ${h * 0.84}, 130 ${h}`,
+  ].join(' ')
+  return (
+    <div aria-hidden="true" className="w-full self-stretch" style={{ height }}>
+      <svg width="100%" height={height} viewBox={`0 0 1000 ${height}`} preserveAspectRatio="none" fill="none">
+        <path d={d} stroke={DOT_STROKE} strokeOpacity={DOT_OPACITY} strokeWidth="3" strokeDasharray={DOT_DASH} strokeLinecap="round" />
+      </svg>
+    </div>
+  )
+}
+
 // ─── Image slots ────────────────────────────────────────────────────────────
 // `height` is a plain pixel number (not a Tailwind class) so it can be
 // derived per-breakpoint without fighting Tailwind's static class scanning.
@@ -75,10 +94,13 @@ function PlaceholderShot({ label, height = 226, fill = false }) {
   )
 }
 
-function Shot({ src, alt, height, fill = false, rounded = 16 }) {
+function Shot({ src, alt, height, fill = false, row = false, rounded = 16 }) {
+  // `row` shots sit side-by-side in a flex row (supplement screenshots) and
+  // must share the available width instead of each claiming 100%.
+  const sizing = fill ? 'w-full flex-1 min-h-0' : row ? 'flex-1 min-w-0' : 'w-full shrink-0'
   return (
     <div
-      className={`relative w-full border border-[#e5e5e5] overflow-hidden bg-[#fafafa] ${fill ? 'flex-1 min-h-0' : 'shrink-0'}`}
+      className={`relative border border-[#e5e5e5] overflow-hidden bg-[#fafafa] ${sizing}`}
       style={{ ...(fill ? {} : { height }), borderRadius: rounded }}
     >
       <img src={src} alt={alt} className="absolute inset-0 w-full h-full object-cover object-top" />
@@ -102,7 +124,7 @@ function StepShot({ step, height, fill = false, subHeight = 100 }) {
         <Shot src={step.shot} alt={step.title} fill />
         <div className="flex gap-[8px] w-full shrink-0" style={{ height: subHeight }}>
           {step.supplements.map((src, i) => (
-            <Shot key={i} src={src} alt={`${step.title} — detail ${i + 1}`} height={subHeight} rounded={12} />
+            <Shot key={i} src={src} alt={`${step.title} — detail ${i + 1}`} height={subHeight} rounded={12} row />
           ))}
         </div>
       </div>
@@ -116,7 +138,7 @@ function StepShot({ step, height, fill = false, subHeight = 100 }) {
       <Shot src={step.shot} alt={step.title} height={mainH} />
       <div className="flex gap-[8px] w-full">
         {step.supplements.map((src, i) => (
-          <Shot key={i} src={src} alt={`${step.title} — detail ${i + 1}`} height={subH} rounded={12} />
+          <Shot key={i} src={src} alt={`${step.title} — detail ${i + 1}`} height={subH} rounded={12} row />
         ))}
       </div>
     </div>
@@ -156,15 +178,27 @@ const steps = [
   },
 ]
 
-// ─── Title ──────────────────────────────────────────────────────────────────
+// ─── Section heading + part title ─────────────────────────────────────────────
 
-function Title({ headingClass }) {
+// Top-of-section heading (eyebrow + main title) — shown once above part 1.
+function SectionHeading({ headingClass }) {
+  const [ref, inView] = useInView()
+  return (
+    <div ref={ref} className="content-stretch flex flex-col gap-[8px] items-center justify-center text-center w-full" style={fadeInUp(inView)}>
+      <p className="font-['Inter',sans-serif] font-semibold text-[#525252] text-[16px] tracking-[-0.48px] uppercase leading-[18px]">How It Works</p>
+      <h2 className={`font-['Geist',sans-serif] font-medium text-[#171717] mx-auto ${headingClass}`}>
+        Your AI Resume &amp; Interview Coach
+      </h2>
+    </div>
+  )
+}
+
+// Smaller per-part title (used by both the Resume and Interview parts).
+function PartTitle({ text, className }) {
   const [ref, inView] = useInView()
   return (
     <div ref={ref} className="w-full text-center" style={fadeInUp(inView)}>
-      <h2 className={`font-['Geist',sans-serif] font-medium text-[#171717] tracking-[-0.96px] mx-auto ${headingClass}`}>
-        AI Resume Coach — Match your resume to the job description
-      </h2>
+      <h3 className={`font-['Geist',sans-serif] font-medium text-[#171717] mx-auto ${className}`}>{text}</h3>
     </div>
   )
 }
@@ -183,13 +217,11 @@ function StepCard({
   shotHeight = 226,
   subHeight = 100,
 }) {
-  const [ref, inView] = useInView()
   const Icon = step.icon
   return (
     <div
-      ref={ref}
       className={`bg-white relative rounded-[16px] shadow-[0_2px_6px_rgba(0,0,0,0.04),0_6px_20px_rgba(0,0,0,0.07)] transition-all duration-300 ease-out hover:-translate-y-[4px] hover:shadow-[0_8px_28px_rgba(0,0,0,0.11)] ${sizeClass} ${fill ? 'overflow-hidden' : ''}`}
-      style={{ ...fadeInUp(inView), ...(cardHeight ? { height: cardHeight } : {}) }}
+      style={cardHeight ? { height: cardHeight } : undefined}
     >
       <div aria-hidden="true" className="absolute border border-[#e5e5e5] border-solid inset-0 pointer-events-none rounded-[16px]" />
       <div className={`content-stretch flex flex-col ${contentGap} items-start ${padClass} relative w-full h-full`}>
@@ -215,10 +247,11 @@ function ResumeEditorMobile() {
   const [row1Ref, row1InView] = useInView()
   const [row2Ref, row2InView] = useInView()
   return (
-    <section className="content-stretch flex flex-col items-center justify-center px-[16px] pt-[8px] pb-[48px] relative w-full">
+    <section className="content-stretch flex flex-col items-center justify-center px-[16px] pt-[48px] pb-[24px] relative w-full">
       <div className="content-stretch flex flex-col gap-[32px] items-center justify-center relative shrink-0 w-full">
-        <Title headingClass="text-[32px] leading-[36px]" />
+        <SectionHeading headingClass="text-[32px] leading-[36px] tracking-[-0.96px]" />
         <div className="content-stretch flex flex-col gap-[24px] items-center justify-center relative shrink-0 w-full">
+          <PartTitle text="AI Resume Coach: Match your resume to the job description" className="text-[22px] leading-[28px] tracking-[-0.5px]" />
           <div ref={row1Ref} className="content-stretch flex flex-col gap-[24px] items-start relative shrink-0 w-full" style={fadeInUp(row1InView, 0)}>
             <StepCard step={steps[0]} sizeClass="w-full" shotHeight={226} />
             <ConnectorV height={28} />
@@ -243,9 +276,10 @@ function ResumeEditorTablet() {
   const [row2Ref, row2InView] = useInView()
   return (
     <section className="content-stretch flex flex-col items-center justify-center px-[40px] relative w-full">
-      <div className="content-stretch flex flex-col gap-[48px] items-center justify-center pt-[8px] pb-[56px] relative shrink-0 w-full">
-        <Title headingClass="text-[36px] leading-[40px] tracking-[-1.08px]" />
+      <div className="content-stretch flex flex-col gap-[48px] items-center justify-center pt-[56px] pb-[28px] relative shrink-0 w-full">
+        <SectionHeading headingClass="text-[36px] leading-[40px] tracking-[-1.08px]" />
         <div className="content-stretch flex flex-col gap-[40px] items-center justify-center relative shrink-0 w-full">
+          <PartTitle text="AI Resume Coach: Match your resume to the job description" className="text-[24px] leading-[30px] tracking-[-0.72px]" />
           <div ref={row1Ref} className="content-stretch flex flex-col gap-[40px] items-center justify-center relative shrink-0 w-full" style={fadeInUp(row1InView, 0)}>
             <StepCard step={steps[0]} sizeClass="w-[860px]" cardHeight={570} padClass="p-[24px]" textHeight={84} fill subHeight={150} />
             <ConnectorV height={36} />
@@ -270,14 +304,16 @@ function ResumeEditorDesktop() {
   const [row2Ref, row2InView] = useInView()
   return (
     <section className="content-stretch flex items-center justify-center relative w-full">
-      <div className="content-stretch flex flex-1 flex-col gap-[64px] items-center justify-center pt-[8px] pb-[80px] relative">
-        <Title headingClass="text-[40px] leading-[44px] tracking-[-1.2px] max-w-[860px]" />
+      <div className="content-stretch flex flex-1 flex-col gap-[48px] items-center justify-center pt-[80px] pb-[40px] relative">
+        <SectionHeading headingClass="text-[40px] leading-[44px] tracking-[-1.2px] max-w-[860px]" />
+        <PartTitle text="AI Resume Coach: Match your resume to the job description" className="text-[28px] leading-[34px] tracking-[-0.84px] max-w-[860px]" />
         <div className="content-stretch flex flex-col gap-[28px] items-center justify-center relative shrink-0 w-full">
           <div ref={row1Ref} className="content-stretch flex gap-[28px] items-start justify-center relative shrink-0 w-full" style={fadeInUp(row1InView, 0)}>
             <StepCard step={steps[0]} sizeClass="w-[580px]" cardHeight={500} contentGap="gap-[16px]" padClass="p-[24px]" textHeight={108} textGap="gap-[8px]" fill subHeight={120} />
             <ConnectorH width={48} />
             <StepCard step={steps[1]} sizeClass="w-[580px]" cardHeight={500} contentGap="gap-[16px]" padClass="p-[24px]" textHeight={108} textGap="gap-[8px]" fill subHeight={120} />
           </div>
+          <ConnectorDiagonal height={46} />
           <div ref={row2Ref} className="content-stretch flex gap-[28px] items-start justify-center relative shrink-0 w-full" style={fadeInUp(row2InView, 0.15)}>
             <StepCard step={steps[2]} sizeClass="w-[580px]" cardHeight={500} contentGap="gap-[16px]" padClass="p-[24px]" textHeight={108} textGap="gap-[8px]" fill subHeight={120} />
             <ConnectorH width={48} />
