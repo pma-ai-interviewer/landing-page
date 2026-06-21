@@ -5,7 +5,6 @@ import imgStep1 from '../assets/resume-editor/step1-upload.png'
 import imgStep2 from '../assets/resume-editor/step2-upload.png'
 import imgStep3Main from '../assets/resume-editor/step3-upload1.png'
 import imgStep3Hiring from '../assets/resume-editor/step3-upload2.png'
-import imgStep3Keywords from '../assets/resume-editor/step3-upload3.png'
 import imgStep4Main from '../assets/resume-editor/step4-upload1.png'
 import imgStep4Intro from '../assets/resume-editor/step4-upload2.png'
 
@@ -167,7 +166,7 @@ const steps = [
     title: 'Get your match score & gaps',
     description: "A 0–100 score across 4 dimensions, plus a hiring manager's honest take on your experience match.",
     shot: imgStep3Main,
-    supplements: [imgStep3Hiring, imgStep3Keywords],
+    supplements: [imgStep3Hiring],
   },
   {
     icon: Wand2,
@@ -187,7 +186,7 @@ function SectionHeading({ headingClass }) {
     <div ref={ref} className="content-stretch flex flex-col gap-[8px] items-center justify-center text-center w-full" style={fadeInUp(inView)}>
       <p className="font-['Inter',sans-serif] font-semibold text-[#525252] text-[16px] tracking-[-0.48px] uppercase leading-[18px]">How It Works</p>
       <h2 className={`font-['Geist',sans-serif] font-medium text-[#171717] mx-auto ${headingClass}`}>
-        Your AI Resume &amp; Interview Coach
+        Your personal PM job coach
       </h2>
     </div>
   )
