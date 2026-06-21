@@ -63,11 +63,11 @@ function ConnectorH({ width = 48 }) {
 // `height` is a plain pixel number (not a Tailwind class) so it can be
 // derived per-breakpoint without fighting Tailwind's static class scanning.
 
-function PlaceholderShot({ label, height = 226 }) {
+function PlaceholderShot({ label, height = 226, fill = false }) {
   return (
     <div
-      className="bg-[#fafafa] relative rounded-[16px] shrink-0 w-full border border-dashed border-[#d4d4d4] flex flex-col items-center justify-center gap-[8px] px-[16px] text-center"
-      style={{ height }}
+      className={`bg-[#fafafa] relative rounded-[16px] w-full border border-dashed border-[#d4d4d4] flex flex-col items-center justify-center gap-[8px] px-[16px] text-center ${fill ? 'flex-1 min-h-0' : 'shrink-0'}`}
+      style={fill ? undefined : { height }}
     >
       <ImageOff className="w-5 h-5 text-[#a3a3a3]" strokeWidth={1.75} />
       <p className="font-['Geist',sans-serif] text-[#a3a3a3] text-[13px] leading-[1.4]">{label}</p>
@@ -75,11 +75,11 @@ function PlaceholderShot({ label, height = 226 }) {
   )
 }
 
-function Shot({ src, alt, height, rounded = 16 }) {
+function Shot({ src, alt, height, fill = false, rounded = 16 }) {
   return (
     <div
-      className="relative shrink-0 w-full border border-[#e5e5e5] overflow-hidden bg-[#fafafa]"
-      style={{ height, borderRadius: rounded }}
+      className={`relative w-full border border-[#e5e5e5] overflow-hidden bg-[#fafafa] ${fill ? 'flex-1 min-h-0' : 'shrink-0'}`}
+      style={{ ...(fill ? {} : { height }), borderRadius: rounded }}
     >
       <img src={src} alt={alt} className="absolute inset-0 w-full h-full object-cover object-top" />
     </div>
@@ -87,11 +87,26 @@ function Shot({ src, alt, height, rounded = 16 }) {
 }
 
 // Main screenshot + a row of smaller supporting screenshots underneath.
-function StepShot({ step, height }) {
-  if (!step.shot) return <PlaceholderShot label={step.shotLabel} height={height} />
+// In `fill` mode the main shot grows to fill the card's remaining height
+// (matching HowItWorks cards); otherwise it uses an explicit pixel height.
+function StepShot({ step, height, fill = false, subHeight = 100 }) {
+  if (!step.shot) return <PlaceholderShot label={step.shotLabel} height={height} fill={fill} />
 
   if (!step.supplements?.length) {
-    return <Shot src={step.shot} alt={step.title} height={height} />
+    return <Shot src={step.shot} alt={step.title} height={height} fill={fill} />
+  }
+
+  if (fill) {
+    return (
+      <div className="flex flex-col gap-[8px] w-full flex-1 min-h-0">
+        <Shot src={step.shot} alt={step.title} fill />
+        <div className="flex gap-[8px] w-full shrink-0" style={{ height: subHeight }}>
+          {step.supplements.map((src, i) => (
+            <Shot key={i} src={src} alt={`${step.title} — detail ${i + 1}`} height={subHeight} rounded={12} />
+          ))}
+        </div>
+      </div>
+    )
   }
 
   const mainH = Math.round(height * 0.74)
@@ -147,7 +162,7 @@ function Title({ headingClass }) {
   const [ref, inView] = useInView()
   return (
     <div ref={ref} className="w-full text-center" style={fadeInUp(inView)}>
-      <h2 className={`font-['Geist',sans-serif] font-medium text-[#171717] tracking-[-0.96px] ${headingClass}`}>
+      <h2 className={`font-['Geist',sans-serif] font-medium text-[#171717] tracking-[-0.96px] mx-auto ${headingClass}`}>
         AI Resume Coach — Match your resume to the job description
       </h2>
     </div>
@@ -156,25 +171,39 @@ function Title({ headingClass }) {
 
 // ─── Step card ──────────────────────────────────────────────────────────────
 
-function StepCard({ step, shotHeight, sizeClass }) {
+function StepCard({
+  step,
+  sizeClass,
+  cardHeight = null,
+  contentGap = 'gap-[24px]',
+  padClass = 'p-[16px]',
+  textHeight = null,
+  textGap = 'gap-[12px]',
+  fill = false,
+  shotHeight = 226,
+  subHeight = 100,
+}) {
   const [ref, inView] = useInView()
   const Icon = step.icon
   return (
     <div
       ref={ref}
-      className={`bg-white relative rounded-[16px] shadow-[0_2px_6px_rgba(0,0,0,0.04),0_6px_20px_rgba(0,0,0,0.07)] transition-all duration-300 ease-out hover:-translate-y-[4px] hover:shadow-[0_8px_28px_rgba(0,0,0,0.11)] ${sizeClass}`}
-      style={fadeInUp(inView)}
+      className={`bg-white relative rounded-[16px] shadow-[0_2px_6px_rgba(0,0,0,0.04),0_6px_20px_rgba(0,0,0,0.07)] transition-all duration-300 ease-out hover:-translate-y-[4px] hover:shadow-[0_8px_28px_rgba(0,0,0,0.11)] ${sizeClass} ${fill ? 'overflow-hidden' : ''}`}
+      style={{ ...fadeInUp(inView), ...(cardHeight ? { height: cardHeight } : {}) }}
     >
       <div aria-hidden="true" className="absolute border border-[#e5e5e5] border-solid inset-0 pointer-events-none rounded-[16px]" />
-      <div className="content-stretch flex flex-col gap-[24px] items-start p-[16px] lg:p-[24px] relative w-full h-full">
+      <div className={`content-stretch flex flex-col ${contentGap} items-start ${padClass} relative w-full h-full`}>
         <div className="bg-[#fa6400] content-stretch flex items-center p-[8px] relative rounded-[6px] shrink-0">
           <Icon className="w-[24px] h-[24px] text-white" strokeWidth={2} />
         </div>
-        <div className="content-stretch flex flex-col gap-[12px] items-start relative shrink-0 w-full">
+        <div
+          className={`content-stretch flex flex-col ${textGap} items-start relative shrink-0 w-full`}
+          style={textHeight ? { height: textHeight } : undefined}
+        >
           <p className="font-['Geist',sans-serif] font-medium leading-[normal] relative shrink-0 text-[#171717] text-[20px] w-full">{step.title}</p>
           <p className="font-['Geist',sans-serif] font-normal leading-[1.45] relative shrink-0 text-[#737373] text-[16px] w-full">{step.description}</p>
         </div>
-        <StepShot step={step} height={shotHeight} />
+        <StepShot step={step} height={shotHeight} fill={fill} subHeight={subHeight} />
       </div>
     </div>
   )
@@ -191,15 +220,15 @@ function ResumeEditorMobile() {
         <Title headingClass="text-[32px] leading-[36px]" />
         <div className="content-stretch flex flex-col gap-[24px] items-center justify-center relative shrink-0 w-full">
           <div ref={row1Ref} className="content-stretch flex flex-col gap-[24px] items-start relative shrink-0 w-full" style={fadeInUp(row1InView, 0)}>
-            <StepCard step={steps[0]} shotHeight={226} sizeClass="w-full" />
+            <StepCard step={steps[0]} sizeClass="w-full" shotHeight={226} />
             <ConnectorV height={28} />
-            <StepCard step={steps[1]} shotHeight={226} sizeClass="w-full" />
+            <StepCard step={steps[1]} sizeClass="w-full" shotHeight={226} />
           </div>
           <ConnectorV height={28} />
           <div ref={row2Ref} className="content-stretch flex flex-col gap-[24px] items-start relative shrink-0 w-full" style={fadeInUp(row2InView, 0.15)}>
-            <StepCard step={steps[2]} shotHeight={226} sizeClass="w-full" />
+            <StepCard step={steps[2]} sizeClass="w-full" shotHeight={226} />
             <ConnectorV height={28} />
-            <StepCard step={steps[3]} shotHeight={226} sizeClass="w-full" />
+            <StepCard step={steps[3]} sizeClass="w-full" shotHeight={226} />
           </div>
         </div>
       </div>
@@ -218,15 +247,15 @@ function ResumeEditorTablet() {
         <Title headingClass="text-[36px] leading-[40px] tracking-[-1.08px]" />
         <div className="content-stretch flex flex-col gap-[40px] items-center justify-center relative shrink-0 w-full">
           <div ref={row1Ref} className="content-stretch flex flex-col gap-[40px] items-center justify-center relative shrink-0 w-full" style={fadeInUp(row1InView, 0)}>
-            <StepCard step={steps[0]} shotHeight={280} sizeClass="w-[860px]" />
+            <StepCard step={steps[0]} sizeClass="w-[860px]" cardHeight={570} padClass="p-[24px]" textHeight={84} fill subHeight={150} />
             <ConnectorV height={36} />
-            <StepCard step={steps[1]} shotHeight={280} sizeClass="w-[860px]" />
+            <StepCard step={steps[1]} sizeClass="w-[860px]" cardHeight={570} padClass="p-[24px]" textHeight={84} fill subHeight={150} />
           </div>
           <ConnectorV height={36} />
           <div ref={row2Ref} className="content-stretch flex flex-col gap-[40px] items-center justify-center relative shrink-0 w-full" style={fadeInUp(row2InView, 0.15)}>
-            <StepCard step={steps[2]} shotHeight={280} sizeClass="w-[860px]" />
+            <StepCard step={steps[2]} sizeClass="w-[860px]" cardHeight={570} padClass="p-[24px]" textHeight={84} fill subHeight={150} />
             <ConnectorV height={36} />
-            <StepCard step={steps[3]} shotHeight={280} sizeClass="w-[860px]" />
+            <StepCard step={steps[3]} sizeClass="w-[860px]" cardHeight={570} padClass="p-[24px]" textHeight={84} fill subHeight={150} />
           </div>
         </div>
       </div>
@@ -245,14 +274,14 @@ function ResumeEditorDesktop() {
         <Title headingClass="text-[40px] leading-[44px] tracking-[-1.2px] max-w-[860px]" />
         <div className="content-stretch flex flex-col gap-[28px] items-center justify-center relative shrink-0 w-full">
           <div ref={row1Ref} className="content-stretch flex gap-[28px] items-start justify-center relative shrink-0 w-full" style={fadeInUp(row1InView, 0)}>
-            <StepCard step={steps[0]} shotHeight={220} sizeClass="w-[580px]" />
+            <StepCard step={steps[0]} sizeClass="w-[580px]" cardHeight={500} contentGap="gap-[16px]" padClass="p-[24px]" textHeight={108} textGap="gap-[8px]" fill subHeight={120} />
             <ConnectorH width={48} />
-            <StepCard step={steps[1]} shotHeight={220} sizeClass="w-[580px]" />
+            <StepCard step={steps[1]} sizeClass="w-[580px]" cardHeight={500} contentGap="gap-[16px]" padClass="p-[24px]" textHeight={108} textGap="gap-[8px]" fill subHeight={120} />
           </div>
           <div ref={row2Ref} className="content-stretch flex gap-[28px] items-start justify-center relative shrink-0 w-full" style={fadeInUp(row2InView, 0.15)}>
-            <StepCard step={steps[2]} shotHeight={220} sizeClass="w-[580px]" />
+            <StepCard step={steps[2]} sizeClass="w-[580px]" cardHeight={500} contentGap="gap-[16px]" padClass="p-[24px]" textHeight={108} textGap="gap-[8px]" fill subHeight={120} />
             <ConnectorH width={48} />
-            <StepCard step={steps[3]} shotHeight={220} sizeClass="w-[580px]" />
+            <StepCard step={steps[3]} sizeClass="w-[580px]" cardHeight={500} contentGap="gap-[16px]" padClass="p-[24px]" textHeight={108} textGap="gap-[8px]" fill subHeight={120} />
           </div>
         </div>
       </div>
