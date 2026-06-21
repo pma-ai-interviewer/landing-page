@@ -101,14 +101,14 @@ function ConnectorDiagonal({ height = 46 }) {
 
 // ─── Mobile ─────────────────────────────────────────────────────────────────
 
-// Smaller per-part title — matches the AI Resume Coach part heading.
-function PartTitle({ className }) {
+// Per-part title — a bold product name with a muted tagline beneath.
+// Mirrors the Resume Coach part heading in ResumeEditor.
+function PartTitle({ nameClass, taglineClass }) {
   const [ref, inView] = useInView()
   return (
-    <div ref={ref} className="w-full text-center" style={fadeInUp(inView)}>
-      <h3 className={`font-['Geist',sans-serif] font-medium text-[#171717] mx-auto ${className}`}>
-        AI Interview Coach: Practice until you're confident
-      </h3>
+    <div ref={ref} id="interview-coach" className="w-full text-center scroll-mt-[90px]" style={fadeInUp(inView)}>
+      <h3 className={`font-['Geist',sans-serif] font-semibold text-[#171717] mx-auto ${nameClass}`}>Interview Coach</h3>
+      <p className={`font-['Geist',sans-serif] font-normal text-[#737373] mx-auto mt-[6px] ${taglineClass}`}>Practice until you're confident</p>
     </div>
   )
 }
@@ -151,7 +151,7 @@ function HowItWorksContainerMobile() {
   return (
     <section className="content-stretch flex flex-col items-center justify-center px-[16px] pt-[24px] pb-[48px] relative w-full">
       <div className="content-stretch flex flex-col gap-[24px] items-center justify-center relative shrink-0 w-full">
-        <PartTitle className="text-[22px] leading-[28px] tracking-[-0.5px]" />
+        <PartTitle nameClass="text-[22px] leading-[28px] tracking-[-0.5px]" taglineClass="text-[14px] leading-[20px]" />
         <div className="content-stretch flex flex-col gap-[24px] items-center justify-center relative shrink-0 w-full">
           {/* Row 1 */}
           <div ref={row1Ref} className="content-stretch flex flex-col gap-[24px] items-start relative shrink-0 w-full" style={fadeInUp(row1InView, 0)}>
@@ -255,7 +255,7 @@ function HowItWorksContainerTablet() {
   return (
     <section className="content-stretch flex flex-col items-center justify-center px-[40px] relative w-full">
       <div className="content-stretch flex flex-col gap-[32px] items-center justify-center pt-[28px] pb-[56px] relative shrink-0 w-full">
-        <PartTitle className="text-[24px] leading-[30px] tracking-[-0.72px]" />
+        <PartTitle nameClass="text-[24px] leading-[30px] tracking-[-0.72px]" taglineClass="text-[15px] leading-[22px]" />
         <div className="content-stretch flex flex-col gap-[40px] items-center justify-center relative shrink-0 w-full">
           <div ref={row1Ref} className="content-stretch flex flex-col gap-[40px] items-center justify-center relative shrink-0 w-full" style={fadeInUp(row1InView, 0)}>
             <StepCardTablet
@@ -344,7 +344,7 @@ function HowItWorksContainerDesktop() {
   return (
     <section className="content-stretch flex items-center justify-center relative w-full">
       <div className="content-stretch flex flex-1 flex-col gap-[48px] items-center justify-center pt-[40px] pb-[80px] relative">
-        <PartTitle className="text-[28px] leading-[34px] tracking-[-0.84px] max-w-[860px]" />
+        <PartTitle nameClass="text-[28px] leading-[34px] tracking-[-0.84px]" taglineClass="text-[16px] leading-[24px]" />
         <div className="content-stretch flex flex-col gap-[28px] items-center justify-center relative shrink-0 w-full">
           {/* Row 1 */}
           <div ref={row1Ref} className="content-stretch flex gap-[28px] items-start justify-center relative shrink-0 w-full" style={fadeInUp(row1InView, 0)}>

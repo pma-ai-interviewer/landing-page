@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { Upload, FileText, Target, Wand2, ImageOff } from 'lucide-react'
+import { Upload, FileText, Target, Wand2, ImageOff, AudioLines } from 'lucide-react'
 import { useInView, fadeInUp } from '../hooks/useInView'
 import imgStep1 from '../assets/resume-editor/step1-upload.png'
 import imgStep2 from '../assets/resume-editor/step2-upload.png'
@@ -179,7 +179,33 @@ const steps = [
 
 // ─── Section heading + part title ─────────────────────────────────────────────
 
-// Top-of-section heading (eyebrow + main title) — shown once above part 1.
+// Paired toggle shown beneath the subtitle — signals the two parts of the
+// product up front and lets users jump straight to either one.
+function PartToggle() {
+  const [active, setActive] = useState('resume')
+  const go = (id, key) => (e) => {
+    e.preventDefault()
+    setActive(key)
+    document.getElementById(id)?.scrollIntoView({ behavior: 'smooth', block: 'start' })
+  }
+  const base = 'flex items-center gap-[7px] px-[18px] py-[9px] text-[14px] font-medium transition-colors cursor-pointer whitespace-nowrap'
+  const on = 'bg-[#fa6400] text-white'
+  const off = 'bg-white text-[#c2410c] hover:bg-[#fff3ec]'
+  return (
+    <div className="flex justify-center w-full">
+      <div className="inline-flex items-center rounded-full border border-[#fa6400] overflow-hidden">
+        <a href="#resume-coach" onClick={go('resume-coach', 'resume')} className={`${base} ${active === 'resume' ? on : off}`}>
+          <FileText className="w-[15px] h-[15px]" strokeWidth={2} /> Resume Coach
+        </a>
+        <a href="#interview-coach" onClick={go('interview-coach', 'interview')} className={`${base} ${active === 'interview' ? on : off}`}>
+          <AudioLines className="w-[15px] h-[15px]" strokeWidth={2} /> Interview Coach
+        </a>
+      </div>
+    </div>
+  )
+}
+
+// Top-of-section heading (eyebrow + main title + part toggle) — shown once above part 1.
 function SectionHeading({ headingClass }) {
   const [ref, inView] = useInView()
   return (
@@ -188,16 +214,20 @@ function SectionHeading({ headingClass }) {
       <h2 className={`font-['Geist',sans-serif] font-medium text-[#171717] mx-auto ${headingClass}`}>
         Your personal PM job coach
       </h2>
+      <div className="mt-[18px]">
+        <PartToggle />
+      </div>
     </div>
   )
 }
 
-// Smaller per-part title (used by both the Resume and Interview parts).
-function PartTitle({ text, className }) {
+// Per-part title — a bold product name with a muted tagline beneath.
+function PartTitle({ id, name, tagline, nameClass, taglineClass }) {
   const [ref, inView] = useInView()
   return (
-    <div ref={ref} className="w-full text-center" style={fadeInUp(inView)}>
-      <h3 className={`font-['Geist',sans-serif] font-medium text-[#171717] mx-auto ${className}`}>{text}</h3>
+    <div ref={ref} id={id} className="w-full text-center scroll-mt-[90px]" style={fadeInUp(inView)}>
+      <h3 className={`font-['Geist',sans-serif] font-semibold text-[#171717] mx-auto ${nameClass}`}>{name}</h3>
+      <p className={`font-['Geist',sans-serif] font-normal text-[#737373] mx-auto mt-[6px] ${taglineClass}`}>{tagline}</p>
     </div>
   )
 }
@@ -250,7 +280,7 @@ function ResumeEditorMobile() {
       <div className="content-stretch flex flex-col gap-[32px] items-center justify-center relative shrink-0 w-full">
         <SectionHeading headingClass="text-[32px] leading-[36px] tracking-[-0.96px]" />
         <div className="content-stretch flex flex-col gap-[24px] items-center justify-center relative shrink-0 w-full">
-          <PartTitle text="AI Resume Coach: Match your resume to the job description" className="text-[22px] leading-[28px] tracking-[-0.5px]" />
+          <PartTitle id="resume-coach" name="Resume Coach" tagline="Match your resume to the job description" nameClass="text-[22px] leading-[28px] tracking-[-0.5px]" taglineClass="text-[14px] leading-[20px]" />
           <div ref={row1Ref} className="content-stretch flex flex-col gap-[24px] items-start relative shrink-0 w-full" style={fadeInUp(row1InView, 0)}>
             <StepCard step={steps[0]} sizeClass="w-full" shotHeight={226} />
             <ConnectorV height={28} />
@@ -278,7 +308,7 @@ function ResumeEditorTablet() {
       <div className="content-stretch flex flex-col gap-[48px] items-center justify-center pt-[56px] pb-[28px] relative shrink-0 w-full">
         <SectionHeading headingClass="text-[36px] leading-[40px] tracking-[-1.08px]" />
         <div className="content-stretch flex flex-col gap-[40px] items-center justify-center relative shrink-0 w-full">
-          <PartTitle text="AI Resume Coach: Match your resume to the job description" className="text-[24px] leading-[30px] tracking-[-0.72px]" />
+          <PartTitle id="resume-coach" name="Resume Coach" tagline="Match your resume to the job description" nameClass="text-[24px] leading-[30px] tracking-[-0.72px]" taglineClass="text-[15px] leading-[22px]" />
           <div ref={row1Ref} className="content-stretch flex flex-col gap-[40px] items-center justify-center relative shrink-0 w-full" style={fadeInUp(row1InView, 0)}>
             <StepCard step={steps[0]} sizeClass="w-[860px]" cardHeight={570} padClass="p-[24px]" textHeight={84} fill subHeight={150} />
             <ConnectorV height={36} />
@@ -305,7 +335,7 @@ function ResumeEditorDesktop() {
     <section className="content-stretch flex items-center justify-center relative w-full">
       <div className="content-stretch flex flex-1 flex-col gap-[48px] items-center justify-center pt-[80px] pb-[40px] relative">
         <SectionHeading headingClass="text-[40px] leading-[44px] tracking-[-1.2px] max-w-[860px]" />
-        <PartTitle text="AI Resume Coach: Match your resume to the job description" className="text-[28px] leading-[34px] tracking-[-0.84px] max-w-[860px]" />
+        <PartTitle id="resume-coach" name="Resume Coach" tagline="Match your resume to the job description" nameClass="text-[28px] leading-[34px] tracking-[-0.84px]" taglineClass="text-[16px] leading-[24px]" />
         <div className="content-stretch flex flex-col gap-[28px] items-center justify-center relative shrink-0 w-full">
           <div ref={row1Ref} className="content-stretch flex gap-[28px] items-start justify-center relative shrink-0 w-full" style={fadeInUp(row1InView, 0)}>
             <StepCard step={steps[0]} sizeClass="w-[580px]" cardHeight={500} contentGap="gap-[16px]" padClass="p-[24px]" textHeight={108} textGap="gap-[8px]" fill subHeight={120} />
