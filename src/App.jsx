@@ -3,6 +3,7 @@ import Navbar from './components/Navbar'
 import HeroContainer from './components/Hero'
 import FeaturesContainer from './components/Features'
 import HowItWorksContainer from './components/HowItWorks'
+import ResumeEditorContainer from './components/ResumeEditor'
 import ValuesContainer from './components/Values'
 import TestimonialsContainer from './components/Testimonials'
 import PricingContainer from './components/Pricing'
@@ -15,6 +16,7 @@ export default function App() {
       <Navbar />
       <HeroContainer />
       <HowItWorksContainer />
+      <ResumeEditorContainer />
       <FeaturesContainer />
       <div className="bg-gradient-to-br from-[#fff8f5] to-[#fde8d4]"><TestimonialsContainer /></div>
       <ValuesContainer />

@@ -1,7 +1,9 @@
 import { useState, useEffect, useRef } from 'react'
+import { ImageOff } from 'lucide-react'
 import img1 from '../assets/values/value-1.jpg'
 import img2 from '../assets/values/value-2.jpg'
 import img3 from '../assets/values/value-3.jpg'
+import img4 from '../assets/values/value-4.jpg'
 
 function useInView(threshold = 0.15) {
   const ref = useRef(null)
@@ -168,6 +170,13 @@ const illustrations = [
 
 const cards = [
   {
+    title: 'From resume to offer',
+    body: "Know exactly why you're not getting callbacks — then fix it in minutes.",
+    illustration: null,
+    photo: img4,
+    objectPosition: 'center center',
+  },
+  {
     title: 'Flexible, on-demand practice',
     body: 'Fit your interview prep into real life — at home, between classes, after work.',
     illustration: null,
@@ -211,7 +220,14 @@ function ValueCard({ card, aspectClass = 'aspect-[4/5]', titleSize = 'text-[26px
             className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.05]"
             style={{ objectPosition: card.objectPosition }}
           />
-        : <div className="absolute inset-0">{illustrations[card.illustration]}</div>
+        : card.illustration != null
+          ? <div className="absolute inset-0">{illustrations[card.illustration]}</div>
+          : (
+            <div className="absolute inset-0 bg-[#fafafa] border border-dashed border-[#d4d4d4] flex flex-col items-center justify-center gap-[8px] px-[16px] text-center">
+              <ImageOff className="w-6 h-6 text-[#a3a3a3]" strokeWidth={1.75} />
+              <p className="font-['Geist',sans-serif] text-[#a3a3a3] text-[13px] leading-[1.4]">Screenshot/photo: resume match → offer</p>
+            </div>
+          )
       }
       {/* Dark gradient overlay for text legibility */}
       <div aria-hidden="true" className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/30 to-transparent" />
