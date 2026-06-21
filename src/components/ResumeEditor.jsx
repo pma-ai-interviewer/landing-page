@@ -93,7 +93,7 @@ function PlaceholderShot({ label, height = 226, fill = false }) {
   )
 }
 
-function Shot({ src, alt, height, fill = false, row = false, rounded = 16 }) {
+function Shot({ src, alt, height, fill = false, row = false, rounded = 16, objectPosition = 'center top' }) {
   // `row` shots sit side-by-side in a flex row (supplement screenshots) and
   // must share the available width instead of each claiming 100%.
   const sizing = fill ? 'w-full flex-1 min-h-0' : row ? 'flex-1 min-w-0' : 'w-full shrink-0'
@@ -102,7 +102,7 @@ function Shot({ src, alt, height, fill = false, row = false, rounded = 16 }) {
       className={`relative border border-[#e5e5e5] overflow-hidden bg-[#fafafa] ${sizing}`}
       style={{ ...(fill ? {} : { height }), borderRadius: rounded }}
     >
-      <img src={src} alt={alt} className="absolute inset-0 w-full h-full object-cover object-top" />
+      <img src={src} alt={alt} className="absolute inset-0 w-full h-full object-cover" style={{ objectPosition }} />
     </div>
   )
 }
@@ -111,19 +111,20 @@ function Shot({ src, alt, height, fill = false, row = false, rounded = 16 }) {
 // In `fill` mode the main shot grows to fill the card's remaining height
 // (matching HowItWorks cards); otherwise it uses an explicit pixel height.
 function StepShot({ step, height, fill = false, subHeight = 100 }) {
+  const op = step.objectPosition
   if (!step.shot) return <PlaceholderShot label={step.shotLabel} height={height} fill={fill} />
 
   if (!step.supplements?.length) {
-    return <Shot src={step.shot} alt={step.title} height={height} fill={fill} />
+    return <Shot src={step.shot} alt={step.title} height={height} fill={fill} objectPosition={op} />
   }
 
   if (fill) {
     return (
       <div className="flex flex-col gap-[8px] w-full flex-1 min-h-0">
-        <Shot src={step.shot} alt={step.title} fill />
+        <Shot src={step.shot} alt={step.title} fill objectPosition={op} />
         <div className="flex gap-[8px] w-full shrink-0" style={{ height: subHeight }}>
           {step.supplements.map((src, i) => (
-            <Shot key={i} src={src} alt={`${step.title} — detail ${i + 1}`} height={subHeight} rounded={12} row />
+            <Shot key={i} src={src} alt={`${step.title} — detail ${i + 1}`} height={subHeight} rounded={12} row objectPosition={op} />
           ))}
         </div>
       </div>
@@ -134,10 +135,10 @@ function StepShot({ step, height, fill = false, subHeight = 100 }) {
   const subH = Math.round(height * 0.46)
   return (
     <div className="flex flex-col gap-[8px] w-full shrink-0">
-      <Shot src={step.shot} alt={step.title} height={mainH} />
+      <Shot src={step.shot} alt={step.title} height={mainH} objectPosition={op} />
       <div className="flex gap-[8px] w-full">
         {step.supplements.map((src, i) => (
-          <Shot key={i} src={src} alt={`${step.title} — detail ${i + 1}`} height={subH} rounded={12} row />
+          <Shot key={i} src={src} alt={`${step.title} — detail ${i + 1}`} height={subH} rounded={12} row objectPosition={op} />
         ))}
       </div>
     </div>
@@ -153,6 +154,7 @@ const steps = [
     description: 'PDF, DOCX, or plain text, read in seconds.',
     shot: imgStep1,
     shotLabel: 'Screenshot: resume upload / paste screen',
+    objectPosition: 'left top',
   },
   {
     icon: FileText,
@@ -160,6 +162,7 @@ const steps = [
     description: 'Score your fit against the actual role.',
     shot: imgStep2,
     shotLabel: 'Screenshot: job description input',
+    objectPosition: 'left top',
   },
   {
     icon: Target,
@@ -174,6 +177,7 @@ const steps = [
     description: 'Weak bullets rewritten, ATS keyword match improved, downloadable as a polished .docx.',
     shot: imgStep4Main,
     supplements: [imgStep4Intro],
+    objectPosition: 'left top',
   },
 ]
 
