@@ -42,7 +42,20 @@ const plans = [
     period: '',
     cta: 'Get started',
     ctaVariant: 'ghost',
-    description: 'Free unlimited access for verified PMA cohort members.',
+    description: (
+      <>
+        Free unlimited access for verified PMA students who signed up for our{' '}
+        <a
+          href="https://www.pmaccelerator.io/product-manager-certification"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="underline hover:text-[#fa6400] transition-colors"
+        >
+          end to end coaching program
+        </a>
+        .
+      </>
+    ),
     features: [
       'Unlimited mock interview sessions',
       'Access to unlimited practice questions',

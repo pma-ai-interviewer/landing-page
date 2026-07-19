@@ -34,6 +34,11 @@ const testimonials = [
     name: 'Nayana H.',
     role: 'Former Sr. PM @ Amazon',
   },
+  {
+    quote: '"Practicely turned out to be exactly the kind of practical resource I needed after weeks of searching for solid interview prep help. The feedback is direct, it points out what I need to work on, confirms the challenges I already knew were an issue, and gives me clear steps to fix them. My prep has felt a lot more focused since I started using it."',
+    name: 'Riley B.',
+    role: 'Former Sr. PM @ Oracle',
+  },
 ]
 
 function TestimonialCard({ quote, name, role }) {
@@ -61,7 +66,7 @@ function MarqueeTrack() {
           display: flex;
           gap: 24px;
           width: max-content;
-          animation: marquee 30s linear infinite;
+          animation: marquee 38s linear infinite;
         }
         .marquee-track:hover {
           animation-play-state: paused;
